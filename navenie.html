@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navenie - Angel Naitbj</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      background: #eddcea; 
+    }
+
+    header { 
+      background: #333; 
+      color: rgb(207, 15, 15); 
+      text-align: center; 
+      padding: 50px 20px; 
+    }
+    header h1 { 
+      font-size: 2.2rem; 
+      margin: 0; 
+      text-shadow: 2px 2px 4px #000, -1px -1px 2px #555;
+    }
+
+    /* Navigation Bar */
+    nav { 
+      background: #100f0f; 
+      position: relative;
+    }
+    .nav-links {
+      display: flex; 
+      justify-content: center; 
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li {
+      position: relative;
+    }
+    .nav-links a { 
+      color: rgb(203, 178, 19); 
+      text-decoration: none; 
+      padding: 12px 18px; 
+      display: block; 
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.2s;
+      text-shadow: 1px 1px 2px #000;
+    }
+    .nav-links a:hover { 
+      background: #7d784cd8; 
+      transform: translateY(-2px);
+    }
+
+    /* Dropdown */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #222;
+      min-width: 180px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      border-radius: 4px;
+    }
+    .dropdown-content a {
+      color: white;
+      padding: 10px 15px;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #333;
+      text-shadow: 1px 1px 2px #000;
+    }
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+    .dropdown-content a:hover {
+      background: #444;
+    }
+
+    /* Caret Icon */
+    .dropdown > a::after {
+      content: " ▼";
+      font-size: 0.7rem;
+    }
+
+    /* Hamburger Menu (mobile) */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: rgb(122, 6, 59);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* Hide nav links on mobile */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        display: none;
+        background: #100f0f;
+      }
+      .nav-links li {
+        width: 100%;
+      }
+      .nav-links a {
+        padding: 12px;
+        font-size: 0.9rem;
+      }
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+    }
+
+    /* Section */
+    section { 
+      text-align: center; 
+      padding: 50px 20px; 
+    }
+    section h1 { 
+      font-size: 1.8rem; 
+      margin-bottom: 20px; 
+      text-shadow: 2px 2px 4px #555, -1px -1px 2px #aaa;
+    }
+    section h2 { 
+      margin: 20px 0 10px; 
+      font-size: 1.5rem; 
+      text-shadow: 1px 1px 3px #444;
+    }
+    section p { 
+      max-width: 700px; 
+      margin: auto; 
+      font-size: 1rem; 
+      line-height: 1.6; 
+    }
+    section img { 
+      max-width: 600px; 
+      width: 100%; 
+      border-radius: 10px; 
+      margin: 20px auto; 
+      display: block; 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    /* Footer */
+    footer { 
+      text-align: center; 
+      padding: 20px; 
+      background: #222; 
+      color: rgb(229, 202, 217); 
+      text-shadow: 1px 1px 3px #000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NAVENIE™</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="christuneocreatology.html">CHRISTUNEOCREATOLOGY™</a></li>
+      <li class="dropdown">
+        <a href="navenie.html">NAVENIE™</a>
+        <div class="dropdown-content">
+          <a href="navenieeducation.html">NAVENIE EDUCATION</a>
+          <a href="naveniecommunity.html">NAVENIE COMMUNITY</a>
+        </div>
+      </li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Section -->
+  <section>
+    <h1>Experience the Power of SCIENCE and TECHNOLOGY with NAVENIE™</h1>
+    <img src="navenie.jpg" alt="Navenie Image">
+    <h2>Select a Path</h2>
+    <p>Click one of the NAVENIE™ dropdown options above 👆 to explore NAVENIE™ products and services.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 angelnaitbj.org | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
