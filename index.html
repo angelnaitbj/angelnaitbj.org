@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angel Naitbj</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #dbcfd8;
+      color: #070606;
+      line-height: 1.5;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(to right, #222, #101111);
+      color: rgb(168, 13, 13);
+      text-align: center;
+      padding: 30px 15px;
+    }
+    header h1 {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      margin: 10px 0;
+      text-shadow: 2px 2px 4px #000, 3px 3px 6px rgba(0,0,0,0.6); /* 3D effect */
+    }
+    header p {
+      font-size: clamp(0.9rem, 3.5vw, 1rem);
+      margin: 5px 0 15px;
+      text-shadow: 1px 1px 2px #000;
+    }
+    .logo {
+      width: 70px;
+      height: auto;
+      display: block;
+      margin: 0 auto 15px auto;
+    }
+
+    /* ===== CONTACT LINK (3D + BLINK + TRANSITION) ===== */
+    .contact-link a {
+      color: white;
+      background: #444;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: clamp(0.9rem, 3.5vw, 1rem);
+      font-weight: bold;
+      text-shadow: 2px 2px 4px #000;
+      transition: all 0.4s ease-in-out;
+      animation: blinkGlow 2s infinite;
+      display: inline-block;
+    }
+    .contact-link a:hover {
+      background: #d5dbdb;
+      color: black;
+      transform: scale(1.05) rotateX(10deg) rotateY(10deg);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+    @keyframes blinkGlow {
+      0%, 49% {
+        background: #444;
+        color: white;
+        box-shadow: 0 0 5px #000;
+      }
+      50%, 100% {
+        background: #b8860b;
+        color: #fff;
+        box-shadow: 0 0 15px #ffd700, 0 0 25px #ffa500;
+      }
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      background: #0e0d0d;
+      position: relative;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 0;
+      flex: 1;
+      text-align: center;
+    }
+    nav ul li a {
+      color: rgb(181, 112, 7);
+      text-decoration: none;
+      padding: 12px;
+      display: block;
+      font-size: clamp(0.8rem, 3vw, 1rem);
+      font-weight: bold;
+      text-shadow: 2px 2px 4px #000;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    nav ul li a:hover {
+      background: #444;
+      transform: translateY(-2px);
+    }
+
+    /* ===== HAMBURGER ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 12px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #b83939;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    /* ===== MOBILE MENU ===== */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        display: none;
+        background: #111;
+        width: 100%;
+        text-align: center;
+      }
+      nav ul.show {
+        display: flex;
+        animation: slideDown 0.4s ease forwards;
+      }
+      .hamburger {
+        display: flex;
+      }
+      nav ul li a {
+        font-size: 1rem;
+        border-top: 1px solid #333;
+        padding: 14px;
+      }
+    }
+
+    @keyframes slideDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* ===== SECTION ===== */
+    section {
+      padding: 30px 15px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+    section h2 {
+      font-size: clamp(1.4rem, 4vw, 1.8rem);
+      margin-bottom: 15px;
+      color: #070707;
+      text-shadow: 2px 2px 4px #999, 3px 3px 6px rgba(0,0,0,0.4);
+    }
+    section p {
+      font-size: clamp(0.9rem, 3.5vw, 1rem);
+      line-height: 1.6;
+      color: #080707;
+      text-align: justify;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    section img {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: white;
+      margin-top: 40px;
+      font-size: clamp(0.8rem, 3vw, 0.9rem);
+      text-shadow: 1px 1px 3px #000;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="logo.png" alt="Angel Naitbj Logo" class="logo">
+    <h1>Welcome To</h1>
+    <h1>ANGELNAITBJ.ORG</h1>
+    <p>EXPLORING PHILOSOPHY, SPIRITUALITY, SCIENCE AND TECHNOLOGY</p>
+    <div class="contact-link">
+      <a href="contact.html">CONTACT US</a>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('show')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul>
+      <li><a href="christuneocreatology.html" class="active">CHRISTUNEOCREATOLOGY™</a></li>
+      <li><a href="navenie.html">NAVENIE™</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Angel Naitbj -->
+  <section id="about">
+    <img src="angelnaitbj.jpg" alt="angelnaitbj Image">
+    <h2>ABOUT ANGEL NAITBJ</h2>
+    <p>
+      <strong>ANGEL NAITBJ</strong> (whose full name is Norbert April Igwe Theo Bar-Jehoshua Angel)  
+      is the founder of <strong>CHRISTUNEOCREATOLOGY™</strong> and <strong>NAVENIE™</strong>.  
+      He divinely received C777® Christuneocreatology with supernatural hands upon him  
+      as written in the holy scriptures; Daniel 12 and Rev.10 on <em>Mount Mailkunkele</em>  
+      as witnessed and captured by Evang. Michael Olushola Olorunsogo during the  
+      <em>Feast of Tabernacles</em> celebration on <strong>27th October 2017</strong>.
+    </p>
+    <p>
+      His divine mission centers on unveiling heavenly wisdom, connecting humanity  
+      with the Creator’s purpose, and guiding people towards transformation, balance, and truth.
+    </p>
+    <p>
+      <strong>ANGEL NAITBJ</strong> teaches that life of the New creation is sustained by <strong>DIVINE INTELLIGENCE</strong>
+      functioning under <strong>C777®</strong> Operating System.
+    </p>
+  </section>
+
+  <!-- Christuneocreatology Section -->
+  <section id="christuneocreatology">
+    <img src="christuneo.jpg" alt="Christuneocreatology Image">
+    <h2>CHRISTUNEOCREATOLOGY™</h2>
+    <p>
+      Christuneocreatology is the foundation of Angel Naitbj’s teachings, 
+      focusing on divine wisdom, creation, and spiritual enlightenment. 
+      This section will expand on its principles, philosophy, and relevance 
+      to modern life in divine civilization.
+    </p>
+  </section>
+
+  <!-- Navenie Section -->
+  <section id="navenie">
+    <img src="navenie.jpg" alt="Navenie Image">
+    <h2>NAVENIE™</h2>
+    <p>
+      Navenie represents the path of renewal, growth, and transformation in Science and Technology. 
+      It emphasizes balance, unity, and the harmony of existence within Angel Naitbj’s worldview.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 angelnaitbj.org | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
