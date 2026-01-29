@@ -4,12 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Christuneocreatology - Angel Naitbj</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       background: #e9dde8;
-      box-sizing: border-box;
     }
 
     /* ===== HEADER ===== */
@@ -18,7 +22,6 @@
       color: rgb(207, 9, 9);
       text-align: center;
       padding: 20px 10px;
-      box-sizing: border-box;
     }
 
     header h1 {
@@ -34,20 +37,15 @@
       flex-wrap: wrap;
       justify-content: center;
       background: #100e0e;
-      margin: 0;
-      padding: 0;
       width: 100%;
-      box-sizing: border-box;
     }
 
     nav a {
       color: rgb(189, 166, 16);
       text-decoration: none;
       padding: 15px 0;
-      display: block;
       width: 150px;
       text-align: center;
-      box-sizing: border-box;
       font-weight: bold;
       text-shadow: 1px 1px 3px #000;
     }
@@ -57,17 +55,35 @@
       width: 100%;
     }
 
-    /* ===== SOCIAL LINKS ===== */
-    .social-links {
+    /* ===== SOCIAL MEDIA SECTION ===== */
+    .social-wrapper {
+      max-width: 100%;
       margin: 20px auto;
+      padding: 0 10px;
       text-align: center;
-      padding: 10px;
+    }
+
+    /* FIXED TITLE */
+    .social-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    /* SCROLLABLE LINKS ONLY */
+    .social-links {
+      display: block;
       overflow-x: auto;
       white-space: nowrap;
-      -ms-overflow-style: none; /* IE and Edge */
-      scrollbar-width: none; /* Firefox */
+      padding: 10px 0;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
-    .social-links::-webkit-scrollbar { display: none; }
+
+    .social-links::-webkit-scrollbar {
+      display: none;
+    }
+
     .social-links a {
       display: inline-block;
       margin: 5px 8px;
@@ -80,7 +96,10 @@
       font-weight: bold;
       text-shadow: 1px 1px 2px #888;
     }
-    .social-links a:hover { background: #bbb; }
+
+    .social-links a:hover {
+      background: #bbb;
+    }
 
     /* ===== SECTION ===== */
     section {
@@ -94,9 +113,9 @@
       width: 100%;
       max-width: 600px;
       height: auto;
-      display: block;
       margin: 20px auto;
       border-radius: 10px;
+      display: block;
     }
 
     section h2 {
@@ -124,27 +143,18 @@
     @media (max-width: 768px) {
       header h1 { font-size: 1.6rem; }
       nav a { width: 33.33%; font-size: 0.9rem; }
-      section h2 { font-size: 1.4rem; }
-      section p { font-size: 0.95rem; }
-      .social-links a { font-size: 12px; padding: 5px 10px; }
     }
 
     @media (max-width: 480px) {
       header h1 { font-size: 1.3rem; }
-      header { padding: 15px 5px; }
       nav { flex-direction: column; }
-      nav a {
-        width: 100vw;
-        border-top: 1px solid #333;
-      }
-      nav a:hover { width: 100vw; }
-      section { padding: 30px 15px; }
-      section h2 { font-size: 1.2rem; }
-      section p { font-size: 0.9rem; }
+      nav a { width: 100vw; }
     }
   </style>
 </head>
+
 <body>
+
   <!-- Header -->
   <header>
     <h1>CHRISTUNEOCREATOLOGY™</h1>
@@ -157,41 +167,47 @@
     <a href="contact.html">CONTACT</a>
   </nav>
 
-  <!-- Social Media Links -->
-  <div class="social-links">
-    <p><strong>Follow Angel Naitbj’s Teachings:</strong></p>
-    <a href="https://facebook.com/angelnaitbj" target="_blank">Facebook</a>
-    <a href="https://facebook.com/angelnaitbjtv" target="_blank">Facebook TV</a>
-    <a href="https://youtube.com/@angelnaitbj" target="_blank">YouTube</a>
-    <a href="https://youtube.com/@angelnaitbjtv" target="_blank">YouTube TV</a>
-    <a href="https://x.com/angelnaitbj" target="_blank">X (Twitter)</a>
-    <a href="https://x.com/angelnaitbjtv" target="_blank">X (Twitter) TV</a>
-    <a href="https://linkedin.com/in/angelnaitbj" target="_blank">LinkedIn</a>
-    <a href="https://instagram.com/angelnaitbj" target="_blank">Instagram</a>
-    <a href="https://instagram.com/angelnaitbjtv" target="_blank">Instagram TV</a>
-    <a href="https://whatsapp.com/channel/0029Va4X1Ft5PO0zGpq8eq2X" target="_blank">WhatsApp Channel</a>
-    <a href="http://t.me/angelnaitbjtv" target="_blank">Telegram Channel</a>
-    <a href="https://drive.google.com/file/d/1P1oCDKT8wrvGsn0ZGS2X433ncpPfCIiJ/view?usp=drivesdk">Constitution Link</a>
+  <!-- Social Media Section -->
+  <div class="social-wrapper">
+    <div class="social-title">
+      Follow Angel Naitbj’s Teachings:
+    </div>
+
+    <div class="social-links">
+      <a href="https://facebook.com/angelnaitbj" target="_blank">Facebook</a>
+      <a href="https://facebook.com/angelnaitbjtv" target="_blank">Facebook TV</a>
+      <a href="https://youtube.com/@angelnaitbj" target="_blank">YouTube</a>
+      <a href="https://youtube.com/@angelnaitbjtv" target="_blank">YouTube TV</a>
+      <a href="https://x.com/angelnaitbj" target="_blank">X (Twitter)</a>
+      <a href="https://x.com/angelnaitbjtv" target="_blank">X (Twitter) TV</a>
+      <a href="https://linkedin.com/in/angelnaitbj" target="_blank">LinkedIn</a>
+      <a href="https://instagram.com/angelnaitbj" target="_blank">Instagram</a>
+      <a href="https://instagram.com/angelnaitbjtv" target="_blank">Instagram TV</a>
+      <a href="https://whatsapp.com/channel/0029Va4X1Ft5PO0zGpq8eq2X" target="_blank">WhatsApp Channel</a>
+      <a href="http://t.me/angelnaitbjtv" target="_blank">Telegram Channel</a>
+      <a href="https://drive.google.com/file/d/1P1oCDKT8wrvGsn0ZGS2X433ncpPfCIiJ/view?usp=drivesdk">
+        Constitution Link
+      </a>
+    </div>
   </div>
 
-  <!-- Main Content -->
+  <!-- Content Sections -->
   <section>
     <h2>Understanding Christuneocreatology</h2>
     <img src="christuneo.jpg" alt="Christuneocreatology Image">
     <p>
-      Christuneocreatology is the foundation of Angel Naitbj’s teachings, focusing on divine wisdom, 
-      creation, and spiritual enlightenment. It seeks to connect humanity with divine purpose through 
+      Christuneocreatology is the foundation of Angel Naitbj’s teachings, focusing on divine wisdom,
+      creation, and spiritual enlightenment. It seeks to connect humanity with divine purpose through
       knowledge, balance, and truth.
     </p>
   </section>
 
-  <!-- Subfields -->
   <section>
     <h2>Christuneocreatocracy</h2>
     <img src="christuneocreatocracy.jpg" alt="Christuneocreatocracy Image">
     <p>
-      Christuneocreatocracy represents the divine system of governance under the principles of Christuneocreatology.  
-      It emphasizes leadership through wisdom, truth, and divine order.
+      Christuneocreatocracy represents the divine system of governance under the principles of
+      Christuneocreatology. It emphasizes leadership through wisdom, truth, and divine order.
     </p>
   </section>
 
@@ -199,7 +215,7 @@
     <h2>Christuneocreatogogy</h2>
     <img src="christuneocreatogogy.jpg" alt="Christuneocreatogogy Image">
     <p>
-      Christuneocreatogogy is the teaching and learning approach inspired by Christuneocreatology.  
+      Christuneocreatogogy is the teaching and learning approach inspired by Christuneocreatology.
       It focuses on holistic education, nurturing spiritual and intellectual growth.
     </p>
   </section>
@@ -208,7 +224,7 @@
     <h2>Christuneocreatopreneurship</h2>
     <img src="christuneocreatopreneurship.jpg" alt="Christuneocreatopreneurship Image">
     <p>
-      Christuneocreatopreneurship integrates divine wisdom with entrepreneurship.  
+      Christuneocreatopreneurship integrates divine wisdom with entrepreneurship.
       It encourages creating businesses and innovations rooted in divine principles and integrity.
     </p>
   </section>
@@ -217,15 +233,15 @@
     <h2>Christuneocreatomedia</h2>
     <img src="christuneocreatomedia.jpg" alt="Christuneocreatomedia Image">
     <p>
-      Christuneocreatomedia is the use of media and communication to spread the light of Christuneocreatology.  
-      It serves as a divine tool for transformation, education, and enlightenment.
+      Christuneocreatomedia is the use of media and communication to spread the light of
+      Christuneocreatology. It serves as a divine tool for transformation, education, and enlightenment.
     </p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 angelnaitbj.org  | All Rights Reserved</p>
-  </footer></p>
+    <p>&copy; 2026 angelnaitbj.org | All Rights Reserved</p>
   </footer>
+
 </body>
 </html>
