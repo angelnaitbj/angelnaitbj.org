@@ -302,7 +302,6 @@ loadPosts();
 
 
 /* ADD COMMENT */
-
 async function addComment(id){
 
 let input = document.getElementById("comment"+id);
@@ -312,6 +311,9 @@ if(text === ""){
 alert("Please write a comment first");
 return;
 }
+
+// ✅ SHOW MESSAGE IMMEDIATELY ON CLICK
+alert("✔ Your comment was successfully submitted!");
 
 const { error } = await client
 .from("comments")
@@ -326,25 +328,8 @@ return;
 input.value = "";
 loadComments(id);
 
-// ✅ SUCCESS MESSAGE
+// ✅ FINAL SUCCESS MESSAGE
 alert("✔ Your comment was successfully submitted!");
-}
-
-
-async function reactPost(id,emoji){
-
-const { error } = await client
-.from("reactions")
-.insert([{ post_id:id, emoji:emoji }]);
-
-if(error){
-console.log(error);
-alert("Reaction failed: " + error.message);
-return;
-}
-
-// ✅ SUCCESS MESSAGE
-alert("✔ Reaction added: " + emoji);
 }
 
 /* REACTIONS */
