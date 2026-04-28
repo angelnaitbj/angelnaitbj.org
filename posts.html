@@ -302,49 +302,50 @@ loadPosts();
 
 
 /* ADD COMMENT */
+
 async function addComment(id){
 
 let input = document.getElementById("comment"+id);
 let text = input.value.trim();
 
-if(text === "") return;
+if(text === ""){
+alert("Please write a comment first");
+return;
+}
 
-await client
+const { error } = await client
 .from("comments")
 .insert([{ post_id:id, comment:text }]);
+
+if(error){
+console.log(error);
+alert("Failed to submit comment: " + error.message);
+return;
+}
 
 input.value = "";
 loadComments(id);
 
+// ✅ SUCCESS MESSAGE
+alert("✔ Your comment was successfully submitted!");
 }
 
 
-/* LOAD COMMENTS */
-async function loadComments(id){
+async function reactPost(id,emoji){
 
-const { data, error } = await client
-.from("comments")
-.select("*")
-.eq("post_id", id)
-.order("id", { ascending:false });
+const { error } = await client
+.from("reactions")
+.insert([{ post_id:id, emoji:emoji }]);
 
-let box = document.getElementById("comments"+id);
-
-if(!box) return;
-
-box.innerHTML = "<h4>Comments</h4>";
-
-if(error || !data || data.length === 0){
-box.innerHTML += "<p>No comments yet.</p>";
+if(error){
+console.log(error);
+alert("Reaction failed: " + error.message);
 return;
 }
 
-data.forEach(c=>{
-box.innerHTML += `<p>💬 ${c.comment}</p>`;
-});
-
+// ✅ SUCCESS MESSAGE
+alert("✔ Reaction added: " + emoji);
 }
-
 
 /* REACTIONS */
 async function reactPost(id,emoji){
