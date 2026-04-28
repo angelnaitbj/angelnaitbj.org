@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Posts | Angel Naitbj</title>
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<!-- SUPABASE CDN (MISSING BEFORE) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, sans-serif;
+background:#dbcfd8;
+color:#111;
+line-height:1.6;
+}
+
+/* HEADER */
+header{
+background:linear-gradient(to right,#111,#333);
+color:white;
+text-align:center;
+padding:30px 15px;
+}
+
+header h1{
+color:gold;
+font-size:clamp(1.8rem,5vw,2.4rem);
+margin-bottom:10px;
+text-shadow:2px 2px 4px #000;
+}
+
+header p{
+font-size:1rem;
+margin-bottom:15px;
+}
+
+header a{
+display:inline-block;
+background:gold;
+color:#111;
+padding:10px 18px;
+text-decoration:none;
+font-weight:bold;
+border-radius:8px;
+transition:.3s;
+}
+
+header a:hover{
+background:white;
+}
+
+/* MAIN */
+.container{
+max-width:900px;
+margin:auto;
+padding:25px 15px;
+}
+
+/* POST CARD */
+.post{
+background:white;
+padding:20px;
+margin-bottom:25px;
+border-radius:12px;
+box-shadow:0 5px 12px rgba(0,0,0,.15);
+}
+
+.post img{
+width:100%;
+max-height:450px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.post h2{
+color:#8b0000;
+margin-bottom:10px;
+font-size:1.6rem;
+}
+
+.post p{
+margin-bottom:15px;
+white-space:pre-line;
+}
+
+/* REACTIONS */
+.reactions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:15px;
+}
+
+.reactions button{
+padding:8px 14px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:18px;
+background:#eee;
+transition:.3s;
+}
+
+.reactions button:hover{
+transform:scale(1.08);
+background:gold;
+}
+
+/* COMMENTS */
+.comment-box{
+margin-top:10px;
+}
+
+.comment-box input{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:8px;
+margin-bottom:10px;
+font-size:1rem;
+}
+
+.comment-box button{
+padding:10px 16px;
+border:none;
+background:#111;
+color:white;
+font-weight:bold;
+border-radius:8px;
+cursor:pointer;
+}
+
+.comment-box button:hover{
+background:#333;
+}
+
+.comments{
+margin-top:15px;
+padding-top:10px;
+border-top:1px solid #ddd;
+}
+
+.comments h4{
+margin-bottom:10px;
+color:#111;
+}
+
+.comments p{
+background:#f4f4f4;
+padding:10px;
+border-radius:8px;
+margin-bottom:8px;
+font-size:.95rem;
+}
+
+/* SHARE */
+.share-btn{
+margin-top:15px;
+padding:10px 16px;
+background:gold;
+border:none;
+font-weight:bold;
+border-radius:8px;
+cursor:pointer;
+}
+
+.share-btn:hover{
+background:#111;
+color:white;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+background:#111;
+color:white;
+margin-top:40px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+header h1{
+font-size:1.7rem;
+}
+
+.post{
+padding:15px;
+}
+
+.post h2{
+font-size:1.3rem;
+}
+
+.reactions button{
+flex:1;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>ANGEL NAITBJ POSTS</h1>
+<p>Philosophy • Spirituality • Science • Technology</p>
+<a href="index.html">HOME</a>
+</header>
+
+<section class="container">
+<div id="postsContainer">Loading posts...</div>
+</section>
+
+<footer>
+&copy; 2026 angelnaitbj.org | All Rights Reserved
+</footer>
+
+<script>
+/* REAL KEYS - ONLY DECLARED ONCE */
+const supabaseUrl = "https://dvidfezruzupnxizexpl.supabase.co";
+const supabaseKey = "sb_publishable_DZoa0xi7W7PqrPWkxJtqSw_rn0htocy";
+
+const client = supabase.createClient(supabaseUrl, supabaseKey);
+
+
+/* LOAD POSTS */
+async function loadPosts(){
+
+let box = document.getElementById("postsContainer");
+box.innerHTML = "Loading posts...";
+
+const { data, error } = await client
+.from("posts")
+.select("*")
+.order("id", { ascending:false });
+
+if(error){
+box.innerHTML = "<p>Failed to load posts.</p>";
+console.log(error);
+return;
+}
+
+if(!data || data.length === 0){
+box.innerHTML = "<p>No posts available yet.</p>";
+return;
+}
+
+box.innerHTML = "";
+
+for(const post of data){
+
+box.innerHTML += `
+<div class="post">
+
+${post.image ? `<img src="${post.image}" alt="Post Image">` : ""}
+
+<h2>${post.title || ""}</h2>
+
+<p>${post.content || ""}</p>
+
+<div class="reactions">
+<button onclick="reactPost(${post.id},'❤️')">❤️</button>
+<button onclick="reactPost(${post.id},'👍')">👍</button>
+<button onclick="reactPost(${post.id},'🔥')">🔥</button>
+<button onclick="reactPost(${post.id},'😂')">😂</button>
+<button onclick="reactPost(${post.id},'🙏')">🙏</button>
+</div>
+
+<div class="comment-box">
+<input id="comment${post.id}" placeholder="Write comment...">
+<button onclick="addComment(${post.id})">Send</button>
+</div>
+
+<div class="comments" id="comments${post.id}">
+<h4>Comments</h4>
+</div>
+
+<button class="share-btn" onclick="sharePost(${post.id})">Share Post</button>
+
+</div>
+`;
+
+loadComments(post.id);
+}
+
+}
+
+loadPosts();
+
+
+/* ADD COMMENT */
+async function addComment(id){
+
+let input = document.getElementById("comment"+id);
+let text = input.value.trim();
+
+if(text === "") return;
+
+await client
+.from("comments")
+.insert([{ post_id:id, comment:text }]);
+
+input.value = "";
+loadComments(id);
+
+}
+
+
+/* LOAD COMMENTS */
+async function loadComments(id){
+
+const { data, error } = await client
+.from("comments")
+.select("*")
+.eq("post_id", id)
+.order("id", { ascending:false });
+
+let box = document.getElementById("comments"+id);
+
+if(!box) return;
+
+box.innerHTML = "<h4>Comments</h4>";
+
+if(error || !data || data.length === 0){
+box.innerHTML += "<p>No comments yet.</p>";
+return;
+}
+
+data.forEach(c=>{
+box.innerHTML += `<p>💬 ${c.comment}</p>`;
+});
+
+}
+
+
+/* REACTIONS */
+async function reactPost(id,emoji){
+
+await client
+.from("reactions")
+.insert([{ post_id:id, emoji:emoji }]);
+
+alert("Reaction added " + emoji);
+
+}
+
+
+/* SHARE */
+function sharePost(id){
+
+let url = window.location.origin + window.location.pathname + "?post=" + id;
+
+navigator.clipboard.writeText(url)
+.then(()=> alert("Post link copied!"))
+.catch(()=> alert("Unable to copy link"));
+
+}
+</script>
+
+</body>
+</html>
