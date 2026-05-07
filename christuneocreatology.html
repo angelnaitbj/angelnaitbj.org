@@ -143,37 +143,26 @@
 
     /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
-  header h1 {
-    font-size: 1.6rem;
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
   }
 
-  nav a {
-    flex: 1 1 50%;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 1.3rem;
+  header,
+  footer {
+    width: 100vw;
+    margin: 0;
+    padding: 20px 10px;
+    box-sizing: border-box;
   }
 
-  nav {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  nav a {
-    width: 100%;       /* ✅ FIX: full container width */
-    flex: none;        /* remove flex shrinking issues */
-    display: block;
-  }
 }
   </style>
 </head>
 <body>
-
-  <!-- Header -->
+<!-- Header -->
   <header>
     <h1>CHRISTUNEOCREATOLOGY™</h1>
   </header>
