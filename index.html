@@ -1,763 +1,1147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Angel Naitbj</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #dbcfd8;
-      color: #070606;
-      line-height: 1.5;
-    }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* ===== HEADER ===== */
-    header {
-      background: linear-gradient(to right, #222, #101111);
-      color: rgb(168, 13, 13);
-      text-align: center;
-      padding: 30px 15px;
-    }
-    header h1 {
-      font-size: clamp(1.6rem, 5vw, 2.2rem);
-      margin: 10px 0;
-      text-shadow: 2px 2px 4px #000, 3px 3px 6px rgba(0,0,0,0.6); /* 3D effect */
-    }
-    header p {
-      font-size: clamp(0.9rem, 3.5vw, 1rem);
-      margin: 5px 0 15px;
-      text-shadow: 1px 1px 2px #000;
-    }
-    .logo {
-      width: 70px;
-      height: auto;
-      display: block;
-      margin: 0 auto 15px auto;
-    }
+    <title>Angel Naitbj Organization</title>
 
-    /* ===== CONTACT LINK (3D + BLINK + TRANSITION) ===== */
-    .contact-link a {
-      color: white;
-      background: #444;
-      padding: 10px 18px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: clamp(0.9rem, 3.5vw, 1rem);
-      font-weight: bold;
-      text-shadow: 2px 2px 4px #000;
-      transition: all 0.4s ease-in-out;
-      animation: blinkGlow 2s infinite;
-      display: inline-block;
-    }
-    .contact-link a:hover {
-      background: #d5dbdb;
-      color: black;
-      transform: scale(1.05) rotateX(10deg) rotateY(10deg);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    }
-    @keyframes blinkGlow {
-      0%, 49% {
-        background: #444;
-        color: white;
-        box-shadow: 0 0 5px #000;
-      }
-      50%, 100% {
-        background: #b8860b;
-        color: #fff;
-        box-shadow: 0 0 15px #ffd700, 0 0 25px #ffa500;
-      }
-    }
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    /* ===== NAVIGATION ===== */
-    nav {
-      background: #0e0d0d;
-      position: relative;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-    }
-    nav ul li {
-      margin: 0;
-      flex: 1;
-      text-align: center;
-    }
-    nav ul li a {
-      color: rgb(181, 112, 7);
-      text-decoration: none;
-      padding: 12px;
-      display: block;
-      font-size: clamp(0.8rem, 3vw, 1rem);
-      font-weight: bold;
-      text-shadow: 2px 2px 4px #000;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    nav ul li a:hover {
-      background: #444;
-      transform: translateY(-2px);
-    }
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    /* ===== HAMBURGER ===== */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      padding: 12px;
-      position: absolute;
-      right: 10px;
-      top: 10px;
-    }
-    .hamburger span {
-      height: 3px;
-      width: 25px;
-      background: rgb(98, 4, 4); /* 🔥 gold color */
-      margin: 4px 0;
-      border-radius: 2px;
-    }
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    /* ===== MOBILE MENU ===== */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        display: none;
-        background: #111;
-        width: 100%;
-        text-align: center;
-      }
-      nav ul.show {
-        display: flex;
-        animation: slideDown 0.4s ease forwards;
-      }
-      .hamburger {
-        display: flex;
-      }
-      nav ul li a {
-        font-size: 1rem;
-        border-top: 1px solid #333;
-        padding: 14px;
-      }
-    }
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
 
-    @keyframes slideDown {
-      from {opacity: 0; transform: translateY(-20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    /* ===== SECTION ===== */
-    section {
-      padding: 30px 15px;
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
-    }
-    section h2 {
-      font-size: clamp(1.4rem, 4vw, 1.8rem);
-      margin-bottom: 15px;
-      color: #070707;
-      text-shadow: 2px 2px 4px #999, 3px 3px 6px rgba(0,0,0,0.4);
-    }
-    section p {
-      font-size: clamp(0.9rem, 3.5vw, 1rem);
-      line-height: 1.6;
-      color: #080707;
-      text-align: justify;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    }
-    section img {
-      width: 100%;
-      max-width: 500px;
-      display: block;
-      margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
+html{
+    scroll-behavior:smooth;
+}
 
-    /* ===== FOOTER ===== */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #222;
-      color: hsl(0, 29%, 95%);
-      margin-top: 40px;
-      font-size: clamp(0.8rem, 3vw, 0.9rem);
-      text-shadow: 1px 1px 3px #000;
-    }
-  </style>
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f5f7fb;
+    color:#222;
+    overflow-x:hidden;
+    line-height:1.8;
+}
+
+a{
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+section{
+    background: #000;
+    padding: 80px 0;
+}
+
+.section-title{
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#f7eded;
+    max-width:750px;
+    margin:auto;
+    margin-bottom:60px;
+}
+
+.text-gold{
+    color:#d4af37;
+}
+
+.btn-gold{
+    background:#d4af37;
+    color:#fff;
+    padding:14px 35px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-gold:hover{
+    background:#b8860b;
+    color:#fff;
+    transform:translateY(-3px);
+}
+
+.card-modern{
+    border:none;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    transition:.4s;
+    overflow:hidden;
+}
+
+.card-modern:hover{
+    transform:translateY(-10px);
+}
+
+.shadow-soft{
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.rounded-4{
+    border-radius:20px;
+}
+
+.bg-dark-gradient{
+    background:linear-gradient(135deg,#111,#1b1b1b,#000);
+}
+/*==============================
+            HERO
+==============================*/
+
+.hero{
+
+    background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+    url("hero.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+}
+
+.hero-logo{
+
+    width:340px;
+    margin:auto;
+    animation:float 5s ease-in-out infinite;
+
+    filter:drop-shadow(0 25px 35px rgba(0,0,0,.5));
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+.hero h1{
+
+font-weight:800;
+
+}
+
+.hero p{
+
+font-size:1.2rem;
+
+line-height:1.8;
+
+}
+
+.btn-outline-light:hover{
+
+color:#111;
+
+background:hsl(73, 61%, 61%);
+
+}
+
+.card-modern{
+    border:none;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+}
+
+.card-modern:hover{
+    transform:translateY(-12px);
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+}
+
+
+.card-img-top{
+    width:100%;
+    height:260px;
+    object-fit:contain;
+    background:#fff;
+    padding:15px;
+}
+.card-footer{
+    text-align:center;
+}
+
+.card-footer .btn{
+    width:180px;
+    font-weight:bold;
+}
+</style>
+
 </head>
+
 <body>
-  <!-- Header -->
-  <header>
-    <img src="logo.png" alt="Angel Naitbj Logo" class="logo">
-    <h1>Welcome To</h1>
-    <h1>ANGEL NAITBJ ORGANIZATION</h1>
-    <p>EXPLORING PHILOSOPHY, SPIRITUALITY, SCIENCE AND TECHNOLOGY</p>
-    <div class="contact-link">
-      <a href="contact.html">CONTACT US</a>
+  <!-- =======================
+     NAVIGATION BAR
+======================== -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+
+            <img src="logo.png"
+                 alt="Logo"
+                 width="45"
+                 class="me-2">
+
+            <span class="text-warning">
+                ANGEL NAITBJ 
+            </span>
+
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="navbar">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                       About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="christuneocreatology.html">
+                        Christuneocreatology™
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="navenie.html">
+                        NAVENIE™
+                    </a>
+                </li>
+
+
+                <li class="nav-item ms-lg-3">
+
+                    <a href="contact.html"
+                       class="btn btn-warning rounded-pill px-4">
+
+                        Contact Us
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
     </div>
-  </header>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('show')">
-      <span></span>
-      <span></span>
-      <span></span>
+</nav>
+<!-- ===========================
+         HERO SECTION
+=========================== -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center min-vh-100">
+
+            <div class="col-lg-6">
+
+                <span class="badge bg-warning text-dark px-3 py-2 mb-3">
+                    WELCOME TO
+                </span>
+
+                <h1 class="display-2 fw-bold text-white">
+                    ANGEL NAITBJ 
+                </h1>
+
+                <h2 class="display-5 text-warning fw-semibold mb-4">
+                    ORGANIZATION
+                </h2>
+
+                <p class="lead text-light mb-5">
+
+                    Exploring Philosophy, Spirituality,
+                    Science, Technology and Human Development
+                    through Research, Innovation and Education.
+
+                </p>
+
+                <a href="posts.html" class="btn btn-warning" role="button">
+                 Learn More
+                </a>
+
+                <a href="contact.html" class="btn btn-outline-light btn-lg rounded-pill px-5">
+
+                    Contact Us
+
+                </a>
+
+            </div>
+
+            <div class="col-lg-6 text-center">
+
+                <img src="logo.png"
+                     class="hero-logo"
+                     alt="Angel Naitbj Logo">
+
+            </div>
+
+        </div>
+
     </div>
-    <ul>
-      <li><a href="christuneocreatology.html" class="active">CHRISTUNEOCREATOLOGY™</a></li>
-      <li><a href="navenie.html">NAVENIE™</a></li>
-      <li><a href="posts.html">POSTS</a></li>
-    </ul>
-  </nav>
+  </section>
 
-  <!-- About Angel Naitbj -->
-  <section id="about">
-  <img src="angelnaitbj.jpg" alt="Angel Naitbj Image">
+<!-- ===========================
+        ABOUT SECTION
+=========================== -->
 
-  <h2>ABOUT ANGEL NAITBJ</h2>
+<section id="about">
 
-  <p>
-    <strong>ANGEL NAITBJ</strong>, legally known as 
-    <strong>Norbert April Igwe Theo Bar-Jehoshua Angel</strong>, 
-    is the founder of <strong>CHRISTUNEOCREATOLOGY™ and NAVENIE™</strong>, a Nigerian Systems Engineer, technologist, software and systems developer, 
-    interdisciplinary researcher, philosopher, and spiritual leader whose work spans 
-    science, philosophy, spirituality, engineering, and technology.
-  </p>
+    <div class="container">
 
-  <p>
-    He is the Founder and Chief Executive Officer of 
-    <strong>NAVENIE™ (NAITBJ ANGEL VENTURES INTEGRATED ENVIRONMENTS)</strong>, 
-    an innovation and research-oriented organization dedicated to the development of 
-    engineering systems, technological infrastructures, scientific research, 
-    and interdisciplinary innovation frameworks. 
-    He is also the Founder and President of the 
-    <strong>UNIVERSITY OF CHRISTUNEOCREATOLOGY (UNIC)</strong>, also known as the 
-    <strong>CENTRE FOR CHRISTUNEOCREATOLOGY STUDIES (CCS)</strong>, 
-    an academic institution structured around the 
-    <strong>CHRISTUNEOCREATIVE EDUCATIONAL SYSTEM (CES)</strong>, 
-    which promotes integrated and holistic learning across multiple disciplines.
-  </p>
-<p>
-    <strong>Angel Naitbj</strong>, legally known as 
-    <strong>Norbert April Igwe Theo Bar-Jehoshua Angel</strong>, is also the Founder and President of the 
-    <strong>CHRISTUNEOCREATOLOGY HUMAN DEVELOPMENT AND INNOVATION FOUNDATION (CHDIF)</strong>, also known as the 
-    <strong>“CHRISTUNEOCREATOLOGY FOUNDATION”</strong>.The Foundation is a non-profit, humanitarian, and development-oriented 
-    organization established to promote human development, innovation, and sustainable societal advancement.
-</p>
+        <div class="text-center mb-5">
 
-<p>
-    Under his leadership, the 
-    <strong>CHRISTUNEOCREATOLOGY FOUNDATION</strong> serves as a platform for humanitarian engagement, empowerment, and developmental 
-    action aimed at improving lives and strengthening communities. The Foundation reflects Angel Naitbj’s broader 
-    commitment to integrating constructive ideas with practical solutions that support human dignity, social progress, 
-    and responsible innovation.
-</p>
+            <h6 class="text-warning fw-bold">
+                WHO WE ARE
+            </h6>
 
-<p>
-    The mission of <strong>CHRISTUNEOCREATOLOGY FOUNDATION</strong>  is to advance human development and innovation through humanitarian service, empowerment 
-    programmes, creativity, ethical leadership, and sustainable development initiatives. The Foundation seeks to support 
-    vulnerable populations, encourage social welfare, promote innovation and entrepreneurship, and foster community-based 
-    solutions that contribute to long-term societal progress and human flourishing.
-</p>
+            <h2 class="display-5 fw-bold text-white">
+                About Angel Naitbj
+            </h2>
 
-<p>
-    Through collaboration and partnership with governments, organizations, institutions, and individuals, the 
-    <strong>CHRISTUNEOCREATOLOGY FOUNDATION</strong> works 
-    to mobilize resources, knowledge, and opportunities toward addressing developmental challenges and creating sustainable 
-    impact. Its vision is to contribute to a world where innovation serves humanity, communities are strengthened, and 
-    human potential is nurtured for the common good.
-</p>
+            <p class="text-white">
+                Founder of CHRISTUNEOCREATOLOGY™, NAVENIE™, and the CHRISTUNEOCREATOLOGY FOUNDATION.
+            </p>
 
-<p>
-    As a humanitarian and developmental institution associated with the broader Christuneocreatology vision, the 
-    <strong>CHRISTUNEOCREATOLOGY FOUNDATION</strong> represents Angel Naitbj’s commitment to translating principles of constructive 
-    development into meaningful action for humanity through innovation, service, and responsible social transformation.
-</p>
-  <p>
-    In addition, he is the Founder and Leader of the 
-    <strong>TABERNACLE FEAST OF NEW CREATION IN CHRIST MINISTRY INC.</strong>, 
-    a ministry framework aligned with his spiritual and theological orientation. 
-    He is formally recognized as a 
-    <strong>Christuneocreatologist</strong> and 
-    <strong>Christuneocreative Philosopher</strong>, 
-    through which he advances the philosophical framework known as 
-    <strong>CHRISTUNEOCREATOLOGY™</strong>.
-  </p>
+        </div>
 
-  <p>
-    Christuneocreatology presents an integrative approach to knowledge that unifies 
-    philosophy, spirituality, science, and technology into a structured civilizational model 
-    aimed at ethical innovation, human transformation, balanced development, 
-    and enlightened knowledge systems. 
-    It emphasizes the harmonization of intellectual, technological, and spiritual growth 
-    within modern civilization.
-  </p>
+    </div>
 
-  <p>
-    Angel Naitbj is the originator of the 
-    <strong>C777® CHRISTUNEOCREATOLOGY SYSTEM</strong>, 
-    a conceptual and philosophical framework that organizes principles of consciousness, 
-    knowledge, intelligence, and civilizational structure into an integrated model. 
-    He teaches that the life of the New Creation is sustained by 
-    <strong>DIVINE OR CHRISTUNEOCREATIVE INTELLIGENCE</strong> 
-    functioning under the <strong>C777® Operating System</strong>.
-  </p>
-
-  <p>
-    According to his testimony, he divinely received 
-    <strong>C777® Christuneocreatology</strong> with supernatural hands placed upon him, 
-    as referenced in the Holy Scriptures in Daniel 12 and Revelation 10, 
-    on <em>Mount Mailkunkele</em> during the 
-    <em>Feast of Tabernacles</em> celebration on 
-    <strong>27th October 2017</strong>. 
-    The event was witnessed and documented by 
-    Evang. Michael Olushola Olorunsogo.
-  </p>
-
-  <p>
-    His divine mission centers on unveiling heavenly wisdom, 
-    connecting humanity with the Creator’s purpose, 
-    and guiding people toward transformation, truth, balance, 
-    ethical advancement, and holistic development.
-  </p>
-
-  <p>
-    Professionally, Angel Naitbj is actively involved in 
-    software engineering, systems development, digital infrastructure design, 
-    and technological innovation. 
-    His work bridges theoretical research with applied engineering and technological systems, 
-    particularly in the areas of systems architecture, 
-    knowledge engineering, digital innovation, 
-    philosophy of science, philosophy of technology, 
-    systems theory, and interdisciplinary integration.
-  </p>
-
-  <p>
-    His academic qualifications include:
-  </p>
-
-  <p>
-    • Senior Secondary Certificate (SSC) in Science<br>
-    • National Diploma (ND) in Electrical and Electronics Engineering<br>
-    • Bachelor of Science (BSc) in Software Engineering<br>
-    • Master of Information Technology (MIT) in Artificial Intelligence<br>
-    • Doctor of philosophy (PhD) in Philosophy (Science, Technology, and Society – STS) 
-      with research focus in Christuneocreatology
-  </p>
-
-  <p>
-    His ongoing research focuses on interdisciplinary integration across 
-    philosophy of science, metaphysical studies, systems theory, 
-    ethical technology, and holistic educational frameworks, 
-    with the objective of developing structured models for 
-    civilizational transformation, advanced knowledge systems, 
-    and sustainable human development.
-  </p>
-
-  <p>
-    Through his teachings, research, engineering works, and philosophical systems, 
-    Angel Naitbj continues to promote a unified understanding of knowledge 
-    where science, spirituality, philosophy, and technology 
-    operate together in alignment rather than fragmentation, 
-    forming the basis for what he describes as a 
-    <strong>Christuneocreative Civilization</strong>.
-  </p>
 </section>
 
-  <!-- Christuneocreatology Section -->
-  <section id="christuneocreatology">
-  <img src="christuneo.jpg" alt="Christuneocreatology Image">
 
-  <h2>CHRISTUNEOCREATOLOGY™</h2>
+        </div>
 
-  <p>
-    <strong>CHRISTUNEOCREATOLOGY™</strong> is the central philosophical, spiritual, scientific, and civilizational framework developed by 
-    <strong>ANGEL NAITBJ</strong>. According to his teachings, Christuneocreatology is a systematic framework centered on the understanding 
-    of new creation reality, alignment, transformation, and constructive manifestation. It integrates spirituality, philosophy, science, 
-    technology, systems thinking, and civilization studies into one unified body of knowledge known as the 
-    <strong>Christuneocreative System</strong>.
-  </p>
+        <div class="row align-items-center g-5">
 
-  <p>
-    The word <strong>Christuneocreatology</strong> is conceptually structured as:
-    <br><br>
+            <div class="col-lg-5">
 
-    <strong>Christ</strong> → Christic nature, divine order, alignment, and original intent<br>
-    <strong>Neo / Uneo</strong> → newness, renewal, transformation<br>
-    <strong>Creato</strong> → creation, formation, constructive manifestation<br>
-    <strong>Logy</strong> → study, structured system of knowledge
-  </p>
+                <img src="angelnaitbj.jpg"
+                     class="img-fluid rounded-4 shadow-lg"
+                     alt="Angel Naitbj">
 
-  <p>
-    Thus, Christuneocreatology refers to:
-    <br><br>
+            </div>
 
-    <em>
-      “The systematic study and application of new creation alignment for transforming individuals, systems, and civilization into Christic order.”
-    </em>
-  </p>
+            <div class="col-lg-7">
 
-  <p>
-    The foundation of Christuneocreatology is based on the principle that:
-    <br><br>
+                <div class="card card-modern p-5">
 
-    <strong>
-      Alignment produces Christic order (new creation), while misalignment produces Satanic order (old creation).
-    </strong>
-  </p>
+                    <h3 class="fw-bold mb-4">
+                        Angel Naitbj
+                    </h3>
 
-  <p>
-    This principle is applied to every dimension of life and civilization including:
-    education, government, science, technology, engineering, economics, institutions, families, and human systems. 
-    According to the teachings of Angel Naitbj, nothing is neutral; every system either functions toward alignment 
-    and constructive manifestation or toward distortion and destructive manifestation.
-  </p>
+                    <p>
 
-  <p>
-    <strong>Christic Order (New Creation)</strong> represents alignment with truth, wisdom, structure, stability, growth, 
-    sustainable systems, and transformational civilization. It produces constructive manifestation, clarity, ethical advancement, 
-    and organized development.
-  </p>
+                        <strong>Angel Naitbj</strong>, legally known as
+                        <strong>Norbert April Igwe Theo Bar-Jehoshua Angel</strong>,
+                        is a Systems Engineer, Software Developer,
+                        Philosopher, Researcher and Spiritual Leader.
 
-  <p>
-    <strong>Satanic Order (Old Creation)</strong> represents misalignment, distortion of purpose, corruption, instability, 
-    confusion, disorder, degeneration, and destructive manifestation. Systems operating outside alignment eventually collapse 
-    into disorder and imbalance.
-  </p>
+                    </p>
 
-  <p>
-    Christuneocreatology is therefore not presented merely as a religion or philosophy, but as a 
-    <strong>civilizational system</strong> aimed at developing:
-  </p>
+                    <p>
 
-  <p>
-    • a new creation mindset<br>
-    • aligned systems<br>
-    • constructive civilization<br>
-    • ethical innovation<br>
-    • integrated human development
-  </p>
+                        He is the Founder of
+                        <strong>CHRISTUNEOCREATOLOGY™</strong>,
+                        <strong>NAVENIE™</strong>,
+                        the
+                        <strong>CHRISTUNEOCREATOLOGY HUMAN DEVELOPMENT AND INNOVATION FOUNDATION (CHDIF)</strong>,
+                        and several innovation and educational initiatives.
 
-  <p>
-    The framework teaches that civilization is shaped by:
-    <br><br>
+                    </p>
 
-    • the systems people build<br>
-    • the knowledge they apply<br>
-    • the alignment they operate in
-  </p>
+                    <p>
 
-  <p>
-    Therefore, education, engineering, governance, artificial intelligence, economics, healthcare, science, and technology 
-    must operate in alignment to produce what is called a 
-    <strong>Christuneocreative Civilization</strong>.
-  </p>
+                        His work integrates philosophy,
+                        spirituality,
+                        science,
+                        engineering,
+                        technology,
+                        artificial intelligence,
+                        innovation,
+                        and human development into one unified vision.
 
-  <p>
-    Christuneocreatology strongly emphasizes education, understanding, practical application, and systems thinking. 
-    It teaches that true education goes beyond memorization and information storage, focusing instead on transformation, 
-    utilization, alignment, and constructive societal development.
-  </p>
+                    </p>
 
-  <p>
-    Within this framework, science and technology are not rejected but integrated. According to Angel Naitbj:
-  </p>
+                    <div class="row mt-4">
 
-  <p>
-    <em>
-      “Science explains mechanisms, technology extends capability, but alignment determines direction and outcome.”
-    </em>
-  </p>
+                        <div class="col-md-6 mb-3">
 
-  <p>
-    Artificial intelligence, software systems, engineering structures, and technological innovations are therefore viewed as tools 
-    that can either produce:
-    <br><br>
+                            <div class="shadow-soft rounded-4 p-3">
 
-    • Christic order (new creation)<br>
-    • or Satanic order (old creation)
-    <br><br>
+                                <h3 class="text-warning fw-bold">
+                                    10+
+                                </h3>
 
-    depending on their design, purpose, and application.
-  </p>
+                                <small>
+                                    Research Areas
+                                </small>
 
-  <p>
-    Angel Naitbj is formally recognized as a 
-    <strong>Christuneocreatologist</strong> and 
-    <strong>Christuneocreative Philosopher</strong>. 
-    According to his teachings:
-  </p>
+                            </div>
 
-  <p>
-    <em>
-      “A Christuneocreatologist is a new creation colonizer.”
-    </em>
-  </p>
+                        </div>
 
-  <p>
-    This refers to one who studies alignment, establishes Christic systems, transforms environments, and advances constructive civilization. 
-    Individuals produced through the teachings and application of the C777® Christuneocreatology System are known as 
-    <strong>Christuneocreators</strong>.
-  </p>
+                        <div class="col-md-6 mb-3">
 
-  <p>
-    Christuneocreators apply Christuneocreatology within different professions and disciplines such as:
-  </p>
+                            <div class="shadow-soft rounded-4 p-3">
 
-  <p>
-    • Christuneocreative Engineer<br>
-    • Christuneocreative Scientist<br>
-    • Christuneocreative Doctor<br>
-    • Christuneocreative Counselor<br>
-    • Christuneocreative Technologist
-  </p>
+                                <h3 class="text-warning fw-bold">
+                                    5+
+                                </h3>
 
-  <p>
-    The framework also introduces the 
-    <strong>C777® Christuneocreatology System</strong>, 
-    a structured model representing developmental hierarchies, operational alignment, divine attributes, system intelligence, 
-    and transformational civilization. It is presented as a framework for personal transformation, system development, 
-    and sustainable advancement within modern civilization.
-  </p>
+                                <small>
+                                    Major Organizations
+                                </small>
 
-  <p>
-    Ultimately, Christuneocreatology teaches that:
-  </p>
+                            </div>
 
-  <p>
-    <strong>
-      Everything in creation operates either through alignment or misalignment.
-    </strong>
-  </p>
+                        </div>
 
-  <p>
-    Therefore:
-  </p>
+                    </div>
 
-  <p>
-    • aligned systems produce Christic order (new creation)<br>
-    • misaligned systems produce Satanic order (old creation)
-  </p>
+                </div>
 
-  <p>
-    The ultimate objective of Christuneocreatology is the advancement of a 
-    <strong>Christuneocreative Civilization</strong> built upon wisdom, structure, alignment, constructive manifestation, 
-    integrated knowledge systems, sustainable development, and transformative human advancement.
-  </p>
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-  <!-- Navenie Section -->
-  <section id="navenie">
-  <img src="navenie.jpg" alt="Navenie Image">
+<!-- ===========================
+     OUR ORGANIZATIONS & INSTITUTIONS
+=========================== -->
+<section class="py-5 bg-cream">
 
-  <h2>NAVENIE™</h2>
+    <div class="container">
 
-  <p>
-    <strong>NAVENIE™</strong>, according to Angel Naitbj, stands for 
-    <strong>Naitbj Angel Ventures Integrated Environments</strong>. 
-    It is a systems-oriented innovation framework, technological vision, and operational philosophy 
-    focused on scientific development, engineering, intelligent systems, artificial intelligence, 
-    research, and integrated technological solutions.
-  </p>
+        <!-- Heading -->
+        <div class="text-center mb-5">
 
-  <p>
-    NAVENIE represents the path of renewal, growth, transformation, and constructive advancement 
-    in science and technology. It emphasizes balance, integration, functionality, sustainability, 
-    and the harmony of existence within Angel Naitbj’s worldview and Christuneocreative philosophy.
-  </p>
+    <h2 class="display-4 fw-bold text-white">
+        Our Organizations & Institutions
+    </h2>
 
-  <p>
-    According to the teachings of Angel Naitbj, NAVENIE is not merely a business identity or company name. 
-    It is understood as:
-  </p>
+    <p class="lead text-white">
+        Building a Christuneocreative Civilization through Philosophy, Spirituality,
+        Science, Technology, Education, Innovation, Human Development, and Enterprise.
+    </p>
 
-  <p>
-    <em>
-      “An integrated environment for innovation, systems development, intelligent engineering, 
-      and practical transformation.”
-    </em>
-  </p>
+</div>
 
-  <p>
-    The concept of <strong>Integrated Environments</strong> reflects the idea that:
-  </p>
+        <!-- ================= FIRST ROW ================= -->
 
-  <p>
-    • technology<br>
-    • engineering<br>
-    • intelligence<br>
-    • systems thinking<br>
-    • research<br>
-    • education<br>
-    • and human application
-  </p>
+        <div class="row g-4">
 
-  <p>
-    must function together as one interconnected ecosystem rather than as isolated fields.
-  </p>
+            <!-- CARD 1 -->
+            <div class="col-lg-4">
+                <div class="card card-modern h-100">
+                    <img src="christuneo.jpg" class="card-img-top" alt="Christuneocreatology">
+                    <div class="card-body">
+                        <i class="bi bi-lightbulb-fill text-warning fs-1"></i>
+                        <h3 class="fw-bold mt-3">CHRISTUNEOCREATOLOGY™</h3>
+                        <p class="text-muted">
+                            A philosophical, spiritual, scientific and civilizational framework integrating knowledge, alignment, ethics and transformation.
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="christuneocreatology.html" class="btn btn-warning rounded-pill">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-  <p>
-    The structure of the name NAVENIE carries conceptual significance:
-  </p>
+            <!-- CARD 2 -->
+            <div class="col-lg-4">
+                <div class="card card-modern h-100">
+                    <img src="navenie.jpg" class="card-img-top" alt="NAVENIE">
+                    <div class="card-body">
+                        <i class="bi bi-cpu-fill text-warning fs-1"></i>
+                        <h3 class="fw-bold mt-3">NAVENIE™</h3>
+                        <p class="text-muted">
+                            Advancing engineering, artificial intelligence, software systems, innovation and integrated technological environments.
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="navenie.html" class="btn btn-warning rounded-pill">
+                            Explore
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-  <p>
-    <strong>Naitbj</strong> represents the visionary identity and foundational philosophy connected to Angel Naitbj.
-    <br><br>
+            <!-- CARD 3 -->
+            <div class="col-lg-4">
+                <div class="card card-modern h-100">
+                    <img src="foundation.png" class="card-img-top" alt="CHDIF">
+                    <div class="card-body">
+                        <i class="bi bi-heart-fill text-warning fs-1"></i>
+                        <h3 class="fw-bold mt-3">CHDIF</h3>
+                        <p class="text-muted">
+                            Promoting humanitarian service, innovation, education, leadership and sustainable human development.
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="posts.html" class="btn btn-warning rounded-pill">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-    <strong>Angel</strong> represents the leadership identity and direction behind the vision.
-    <br><br>
+        </div>
 
-    <strong>Ventures</strong> represents innovation, enterprise, exploration, expansion, 
-    and the development of new systems and solutions.
-    <br><br>
+        <!-- ================= SECOND ROW ================= -->
 
-    <strong>Integrated</strong> represents interdisciplinary thinking, systems connection, 
-    and the unification of science, engineering, technology, and intelligence.
-    <br><br>
+        <div class="row g-4 mt-2">
 
-    <strong>Environments</strong> represents operational ecosystems and platforms where systems interact and function together.
-  </p>
+            <!-- CARD 4 -->
+            <div class="col-lg-4">
+                <div class="card card-modern h-100">
+                    <img src="naitbjbizlogo.png" class="card-img-top" alt="NAVEN">
+                    <div class="card-body">
+                        <i class="bi bi-briefcase-fill text-warning fs-1"></i>
+                        <h3 class="fw-bold mt-3">NAVEN</h3>
+                        <p class="text-muted">
+                            NAITBJ ANGEL VENTURES (NAVEN) is the enterprise and investment arm of the Angel Naitbj Organization dedicated to entrepreneurship, investments, commercialization, technology and business development.
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="posts.html" class="btn btn-warning rounded-pill">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-  <p>
-    These environments include:
-  </p>
+            <!-- CARD 5 -->
+            <div class="col-lg-4">
+                <div class="card card-modern h-100">
+                    <img src="naveniescitechlogo.png" class="card-img-top" alt="NAVENIE SciTech">
+                    <div class="card-body">
+                        <i class="bi bi-cpu-fill text-warning fs-1"></i>
+                        <h3 class="fw-bold mt-3">NAVENIE SciTech</h3>
+                        <p class="text-muted">
+                            Develops intelligent software, AI, research-driven technologies, engineering innovations and digital solutions for education, healthcare, governance, business and industry.
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="navenie.html" class="btn btn-warning rounded-pill">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-  <p>
-    • digital environments<br>
-    • educational environments<br>
-    • scientific environments<br>
-    • technological environments<br>
-    • organizational environments<br>
-    • intelligent infrastructures
-  </p>
+            <!-- CARD 6 -->
+            <div class="col-lg-4">
+                <div class="card card-modern h-100">
+                    <img src="universitylogo.png" class="card-img-top" alt="UNIC">
+                    <div class="card-body">
+                        <i class="bi bi-mortarboard-fill text-warning fs-1"></i>
+                        <h3 class="fw-bold mt-3">UNIC</h3>
+                        <p class="text-muted">
+                            The University of Christuneocreatology advances education, research, leadership and innovation by integrating Philosophy, Spirituality, Science and Technology (PSST).
+                        </p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <a href="unic.html" class="btn btn-warning rounded-pill">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-  <p>
-    As a systems-oriented framework, NAVENIE focuses on:
-  </p>
+        </div>
 
-  <p>
-    • designing practical solutions<br>
-    • integrating technologies<br>
-    • developing intelligent systems<br>
-    • building scalable infrastructures<br>
-    • solving real-world problems<br>
-    • advancing constructive civilization
-  </p>
+        <!-- ================= THIRD ROW ================= -->
 
-  <p>
-    It reflects the mindset of a systems engineer building interconnected structures 
-    rather than isolated tools. NAVENIE therefore promotes systems thinking, 
-    scalability, integration, functionality, and sustainable technological advancement.
-  </p>
+        <div class="row justify-content-center mt-4">
 
-  <p>
-    Within the broader vision described by Angel Naitbj, NAVENIE is intended to develop:
-  </p>
+            <div class="col-lg-4">
 
-  <p>
-    • Artificial Intelligence systems<br>
-    • intelligent infrastructures<br>
-    • software platforms<br>
-    • engineering solutions<br>
-    • technological ecosystems<br>
-    • scalable digital systems<br>
-    • research and innovation frameworks
-  </p>
+                <div class="card card-modern h-100">
 
-  <p>
-    The goal is not merely to create software applications, but to establish:
-  </p>
+                    <img src="tabernaclefeastlogo.png"
+                         class="card-img-top"
+                         alt="TMMOFGOD">
 
-  <p>
-    <em>
-      “Integrated intelligent systems that make life easier, more effective, 
-      and more constructively organized.”
-    </em>
-  </p>
+                    <div class="card-body">
 
-  <p>
-    NAVENIE is also connected to human development through:
-  </p>
+                        <i class="bi bi-book-half text-warning fs-1"></i>
 
-  <p>
-    • education<br>
-    • critical thinking<br>
-    • innovation<br>
-    • constructive application of knowledge<br>
-    • technological utilization<br>
-    • systems understanding
-  </p>
+                        <h3 class="fw-bold mt-3">
+                            TMMOFGOD
+                        </h3>
 
-  <p>
-    It encourages smart work, practical intelligence, technological integration, 
-    and transformational problem-solving aimed at improving human capability and civilization.
-  </p>
+                        <p class="text-muted">
+                            The spiritual and transformational ministry of the Angel Naitbj Organization dedicated to the knowledge of the New Creation in Christ, discipleship, spiritual maturity and societal transformation.
+                        </p>
 
-  <p>
-    As an operational philosophy, NAVENIE reflects the belief that:
-  </p>
+                    </div>
 
-  <p>
-    • problems should be solved systematically<br>
-    • systems should be scalable<br>
-    • intelligence should be practical<br>
-    • engineering should be functional<br>
-    • technology should serve humanity constructively
-  </p>
+                    <div class="card-footer bg-white border-0">
 
-  <p>
-    It therefore emphasizes:
-  </p>
+                        <a href="posts.html"
+                           class="btn btn-warning rounded-pill">
+                            Learn More
+                        </a>
 
-  <p>
-    • integration over fragmentation<br>
-    • functionality over appearance<br>
-    • sustainability over temporary solutions<br>
-    • intelligent systems over disconnected tools
-  </p>
+                    </div>
 
-  <p>
-    <strong>NAVENIE SCITECH LIMITED</strong> represents the formal operational structure established for:
-  </p>
+                </div>
 
-  <p>
-    • science<br>
-    • technology<br>
-    • engineering<br>
-    • artificial intelligence<br>
-    • innovation<br>
-    • research and development
-  </p>
+            </div>
 
-  <p>
-    It serves as the organizational platform through which NAVENIE technologies, systems, 
-    infrastructures, and innovation frameworks can be developed, implemented, and expanded.
-  </p>
+        </div>
 
-  <p>
-    Ultimately, NAVENIE represents the vision of building:
-  </p>
+    </div>
 
-  <p>
-    <strong>
-      Connected technological and scientific ecosystems that improve human life 
-      through structured, scalable, intelligent, and integrated solutions.
-    </strong>
-  </p>
 </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 angelnaitbj.org | All Rights Reserved</p>
-  </footer>
+<!-- ===========================
+        VISION & MISSION
+=========================== -->
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h6 class="text-warning fw-bold">
+                OUR PURPOSE
+            </h6>
+
+            <h2 class="display-5 fw-bold">
+                Vision & Mission
+            </h2>
+
+            <p class="text-light">
+                Building a civilization where philosophy, spirituality,
+                science and technology work together for humanity.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-6">
+
+                <div class="card bg-black border-0 shadow-lg h-100">
+
+                    <div class="card-body p-5">
+
+                        <div class="mb-4">
+
+                            <i class="bi bi-eye-fill text-warning display-4"></i>
+
+                        </div>
+
+                        <h3 class="fw-bold text-warning">
+
+                            Our Vision
+
+                        </h3>
+
+                        <p class="text-light">
+
+                            To establish an integrated civilization where
+                            knowledge, innovation, ethical leadership,
+                            science, engineering and spirituality work
+                            together for sustainable human development.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="card bg-black border-0 shadow-lg h-100">
+
+                    <div class="card-body p-5">
+
+                        <div class="mb-4">
+
+                            <i class="bi bi-bullseye text-warning display-4"></i>
+
+                        </div>
+
+                        <h3 class="fw-bold text-warning">
+
+                            Our Mission
+
+                        </h3>
+
+                        <p class="text-light">
+
+                            To advance education, innovation,
+                            artificial intelligence, systems engineering,
+                            humanitarian service and philosophical research
+                            that positively transforms individuals,
+                            institutions and society.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row text-center mt-5">
+
+            <div class="col-md-3 mb-4">
+
+                <h1 class="display-4 fw-bold text-warning">
+                    5+
+                </h1>
+
+                <p>Organizations</p>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <h1 class="display-4 fw-bold text-warning">
+                    10+
+                </h1>
+
+                <p>Research Fields</p>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <h1 class="display-4 fw-bold text-warning">
+                    ∞
+                </h1>
+
+                <p>Innovation</p>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <h1 class="display-4 fw-bold text-warning">
+                    1
+                </h1>
+
+                <p>Unified Vision</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===========================
+        RESEARCH & INNOVATION
+=========================== -->
+
+<section class="py-5 bg-dark text-white">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h6 class="text-warning fw-bold">
+                AREAS OF EXPLORATION
+            </h6>
+
+            <h2 class="display-5 fw-bold">
+                Research & Innovation Fields
+            </h2>
+
+            <p class="text-light">
+                Exploring interconnected disciplines that shape future civilization,
+                technology and human advancement.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="card bg-black border-0 shadow-lg h-100 text-center p-4">
+
+                    <i class="bi bi-cpu-fill text-warning display-4 mb-3"></i>
+
+                    <h5 class="fw-bold text-warning">
+                        Artificial Intelligence
+                    </h5>
+
+                    <p class="text-light">
+                        Developing intelligent systems,
+                        automation and future-oriented technologies.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="card bg-black border-0 shadow-lg h-100 text-center p-4">
+
+                    <i class="bi bi-code-slash text-warning display-4 mb-3"></i>
+
+                    <h5 class="fw-bold text-warning">
+                        Software Engineering
+                    </h5>
+
+                    <p class="text-light">
+                        Building innovative software solutions,
+                        digital platforms and information systems.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="card bg-black border-0 shadow-lg h-100 text-center p-4">
+
+                    <i class="bi bi-globe2 text-warning display-4 mb-3"></i>
+
+                    <h5 class="fw-bold text-warning">
+                        Civilization Studies
+                    </h5>
+
+                    <p class="text-light">
+                        Researching philosophy, culture,
+                        society and human transformation.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="card bg-black border-0 shadow-lg h-100 text-center p-4">
+
+                    <i class="bi bi-diagram-3-fill text-warning display-4 mb-3"></i>
+
+                    <h5 class="fw-bold text-warning">
+                        Systems Engineering
+                    </h5>
+
+                    <p class="text-light">
+                        Designing integrated systems connecting
+                        technology, people and organizations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+<!-- ===========================
+        FOOTER
+=========================== -->
+
+<footer class="bg-dark text-white py-5">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+
+            <!-- Brand -->
+
+            <div class="col-lg-4">
+
+                <div class="d-flex align-items-center mb-3">
+
+                    <img src="logo.png"
+                         alt="Angel Naitbj Logo"
+                         width="60"
+                         class="me-3">
+
+                    <h4 class="fw-bold text-warning mb-0">
+                        ANGEL NAITBJ
+                    </h4>
+
+                </div>
+
+
+                <p class="text-light">
+
+                    Exploring the integration of philosophy,
+                    spirituality, science, technology and human
+                    development through research, innovation and education.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- Quick Links -->
+
+            <div class="col-lg-2">
+
+                <h5 class="fw-bold text-warning mb-3">
+                    Quick Links
+                </h5>
+
+
+                <ul class="list-unstyled">
+
+                    <li class="mb-2">
+                        <a href="index.html"
+                           class="text-white">
+                            Home
+                        </a>
+                    </li>
+
+
+                    <li class="mb-2">
+                        <a href="#about"
+                           class="text-white">
+                            About
+                        </a>
+                    </li>
+
+
+                    <li class="mb-2">
+                        <a href="navenie.html"
+                           class="text-white">
+                            NAVENIE™
+                        </a>
+                    </li>
+
+
+                    <li class="mb-2">
+                        <a href="christuneocreatology.html"
+                           class="text-white">
+                            Christuneocreatology™
+                        </a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- Organizations -->
+
+            <div class="col-lg-3">
+
+                <h5 class="fw-bold text-warning mb-3">
+                    Organizations
+                </h5>
+
+
+                <ul class="list-unstyled text-light">
+
+                    <li class="mb-2">
+                        CHRISTUNEOCREATOLOGY™
+                    </li>
+
+                    <li class="mb-2">
+                        NAVENIE™
+                    </li>
+
+                    <li class="mb-2">
+                        TABERNACLE FEAST OF NEW CREATION IN CHRIST MINISTRY (TMMOFGOD) INC.
+                    </li>
+
+                    <li class="mb-2">
+                        CHRISTUNEOCREATOLOGY HUMAN DEVELOPMENT
+                        AND INNOVATION FOUNDATION (CHDIF) etc..
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+
+
+            <!-- Contact -->
+
+            <div class="col-lg-3">
+
+                <h5 class="fw-bold text-warning mb-3">
+                    Contact
+                </h5>
+
+
+                <p class="mb-2">
+                    <i class="bi bi-envelope-fill text-warning me-2"></i>
+                    info@angelnaitbj.org
+                </p>
+
+
+                <p class="mb-2">
+                    <i class="bi bi-globe text-warning me-2"></i>
+                    www.angelnaitbj.org
+                </p>
+
+
+                <div class="mt-3">
+
+                    <a href="#" class="text-white fs-4 me-3">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+
+                    <a href="#" class="text-white fs-4 me-3">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+
+
+                    <a href="#" class="text-white fs-4">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <hr class="border-secondary my-4">
+
+
+        <div class="text-center">
+
+
+            
+
+            <small class="text-warning">
+
+                Founded by Norbert April Igwe Theo Bar-Jehoshua Angel
+
+            </small>
+          
+          </div>
+
+
+   </section>
+
+
+
+<!-- FOOTER -->
+
+<footer class="bg-dark text-white text-center py-4">
+
+  <h5 class="text-warning">
+    ANGEL NAITBJ
+  </h5>
+
+  <img src="logo.png"
+       width="80"
+       class="d-block mx-auto mb-3"
+       alt="Angel Naitbj Logo">
+
+  <p>
+    © 2026 angelnaitbj.org | All Rights Reserved
+  </p>
+
+</footer>
+
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
+
 </html>
