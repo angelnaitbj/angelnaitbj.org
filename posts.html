@@ -1,415 +1,516 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Posts | Angel Naitbj</title>
+
+<!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+<body>
+
+ <!-- HEADER -->
+
+<header>
+
+<img src="logo.png" alt="Angel Naitbj Logo">
+
+<h1>ANGEL NAITBJ POSTS</h1>
+
+<p>
+Philosophy • Spirituality • Science • Technology
+</p>
+
+<a href="index.html">
+HOME
+</a>
+
+</header>
+
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<a href="index.html">
+HOME
+</a>
+
+<a href="about.html">
+ABOUT
+</a>
+
+<a href="christuneocreatology.html">
+CHRISTUNEOCREATOLOGY™
+</a>
+
+<a href="navenie.html">
+NAVENIE™
+</a>
+
+<a href="contact.html">
+CONTACT
+</a>
+
+</nav>
+
+
+
+<!-- SOCIAL MEDIA LINKS -->
+
+<div style="
+text-align:center;
+padding:20px;
+overflow-x:auto;
+white-space:nowrap;
+">
+
+
+<a href="https://facebook.com/angelnaitbj" target="_blank">
+Facebook
+</a>
+
+
+<a href="https://youtube.com/@angelnaitbj" target="_blank">
+YouTube
+</a>
+
+
+<a href="https://x.com/angelnaitbj" target="_blank">
+X (Twitter)
+</a>
+
+
+<a href="https://instagram.com/angelnaitbj" target="_blank">
+Instagram
+</a>
+
+
+<a href="https://linkedin.com/in/angelnaitbj" target="_blank">
+LinkedIn
+</a>
+
+
+<a href="https://whatsapp.com/channel/0029Va4X1Ft5PO0zGpq8eq2X" target="_blank">
+WhatsApp Channel
+</a>
+
+
+</div>
+<!-- POSTS SECTION -->
+
+<section class="container">
+
+<div id="postsContainer">
+
+Loading posts...
+
+</div>
+
+</section>
+
+    
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Posts | Angel Naitbj</title>
 
 <link rel="icon" href="favicon.ico">
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
 
+
 body{
+
 font-family:Arial,sans-serif;
+
 background:#dbcfd8;
+
 color:#111;
+
 line-height:1.6;
+
 }
+
 
 /* HEADER */
+
 header{
+
 background:#111;
+
 color:white;
+
 text-align:center;
+
 padding:25px 15px;
+
 }
+
+
+header img{
+
+width:80px;
+
+margin-bottom:10px;
+
+}
+
 
 header h1{
+
 color:gold;
+
 font-size:clamp(1.8rem,5vw,2.4rem);
-margin-bottom:10px;
+
 }
+
 
 header p{
-margin-bottom:15px;
+
+margin:10px 0;
+
 }
+
 
 header a{
+
 display:inline-block;
+
 padding:10px 18px;
+
 background:gold;
+
 color:#111;
+
 text-decoration:none;
+
 border-radius:8px;
+
 font-weight:bold;
+
 }
 
-header a:hover{
-background:white;
+
+/* NAVIGATION */
+
+nav{
+
+background:#111;
+
+text-align:center;
+
+padding:15px;
+
 }
 
-/* MAIN */
+
+nav a{
+
+color:gold;
+
+margin:10px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+
+/* MAIN CONTAINER */
+
 .container{
+
 max-width:900px;
+
 margin:auto;
+
 padding:20px;
+
 }
+
 
 /* POST CARD */
+
 .post{
+
 background:white;
+
 padding:20px;
+
 margin-bottom:25px;
+
 border-radius:12px;
+
 box-shadow:0 5px 12px rgba(0,0,0,.15);
+
 }
+
 
 .post img{
+
 width:100%;
+
 max-height:500px;
+
 object-fit:cover;
+
 border-radius:10px;
+
 margin-bottom:15px;
+
 }
+
 
 .post h2{
+
 color:#8b0000;
+
 margin-bottom:12px;
-font-size:1.6rem;
+
 }
 
-/* FIXED PARAGRAPH STYLE */
+
 .post p{
+
 margin-bottom:15px;
+
 white-space:pre-line;
+
 line-height:1.8;
-text-align:left;
-font-size:16px;
+
 }
+
 
 /* REACTIONS */
+
 .reactions{
+
 display:flex;
+
 gap:8px;
+
 flex-wrap:wrap;
-margin-bottom:10px;
+
 }
 
+
 .reactions button{
+
 padding:8px 12px;
+
 border:none;
+
 border-radius:8px;
+
 cursor:pointer;
+
 font-size:18px;
+
 background:#eee;
-transition:.3s;
+
 }
+
 
 .reactions button:hover{
+
 background:gold;
-transform:scale(1.08);
+
 }
 
-/* SHOW REACTIONS */
-.reaction-list{
-margin-bottom:15px;
-}
 
 /* COMMENTS */
+
 .comment-box input{
+
 width:100%;
+
 padding:12px;
+
 border:1px solid #ccc;
+
 border-radius:8px;
-margin-bottom:8px;
-font-size:1rem;
+
+margin-top:10px;
+
 }
+
 
 .comment-box button{
+
+margin-top:8px;
+
 padding:10px 16px;
-border:none;
+
 background:#111;
+
 color:white;
-font-weight:bold;
+
+border:none;
+
 border-radius:8px;
+
 cursor:pointer;
+
 }
 
-.comment-box button:hover{
-background:#333;
-}
 
 .comments{
+
 margin-top:15px;
-padding-top:10px;
+
 border-top:1px solid #ddd;
+
+padding-top:10px;
+
 }
 
-.comments h4{
-margin-bottom:10px;
-}
 
 .comments p{
+
 background:#f4f4f4;
+
 padding:10px;
+
 border-radius:8px;
-margin-bottom:8px;
-font-size:15px;
+
 }
+
 
 /* FOOTER */
+
 footer{
+
 text-align:center;
+
 padding:20px;
+
 background:#111;
+
 color:white;
+
 margin-top:40px;
+
 }
+
 
 /* MOBILE */
+
 @media(max-width:768px){
 
+nav a{
+
+display:block;
+
+margin:8px;
+
+}
+
+
 .post{
+
 padding:15px;
-}
 
-.post h2{
-font-size:1.3rem;
-}
-
-.reactions button{
-flex:1;
 }
 
 }
+
+
 </style>
-</head>
 
-<body>
 
-<header>
-<h1>ANGEL NAITBJ POSTS</h1>
-<p>Philosophy • Spirituality • Science • Technology</p>
-<a href="index.html">HOME</a>
-</header>
-
-<section class="container">
-<div id="postsContainer">Loading posts...</div>
-</section>
+</head>   
+<!-- FOOTER -->
 
 <footer>
-© 2026 angelnaitbj.org
+
+<h3 style="color:gold;">
+ANGEL NAITBJ
+</h3>
+
+
+<img src="logo.png"
+alt="Angel Naitbj Logo"
+width="80"
+style="
+display:block;
+margin:15px auto;
+">
+
+
+<p>
+Follow Angel Naitbj
+</p>
+
+
+<p>
+
+<a href="https://facebook.com/angelnaitbj"
+target="_blank"
+style="color:white;">
+Facebook
+</a>
+
+|
+
+<a href="https://youtube.com/@angelnaitbj"
+target="_blank"
+style="color:white;">
+YouTube
+</a>
+
+|
+
+<a href="https://x.com/angelnaitbj"
+target="_blank"
+style="color:white;">
+X
+</a>
+
+|
+
+<a href="https://instagram.com/angelnaitbj"
+target="_blank"
+style="color:white;">
+Instagram
+</a>
+
+</p>
+
+
+<p>
+© 2026 angelnaitbj.org | All Rights Reserved
+</p>
+
+
 </footer>
 
-<script>
-const supabaseUrl = "https://dvidfezruzupnxizexpl.supabase.co";
-const supabaseKey = "sb_publishable_DZoa0xi7W7PqrPWkxJtqSw_rn0htocy";
-
-const client = supabase.createClient(supabaseUrl, supabaseKey);
-
-
-/* LOAD POSTS */
-async function loadPosts(){
-
-const box = document.getElementById("postsContainer");
-
-box.innerHTML = "Loading posts...";
-
-const { data, error } = await client
-.from("posts")
-.select("*")
-.order("id",{ascending:false});
-
-if(error){
-box.innerHTML = "Failed to load posts";
-console.log(error);
-return;
-}
-
-if(!data || data.length===0){
-box.innerHTML = "No posts available yet.";
-return;
-}
-
-box.innerHTML = "";
-
-for(const post of data){
-
-box.innerHTML += `
-<div class="post">
-
-${post.image ? `<img src="${post.image}" alt="Post Image">` : ""}
-
-<h2>${post.title || ""}</h2>
-
-<p>${post.content || ""}</p>
-
-<div class="reactions">
-<button onclick="reactPost(${post.id},'❤️')">❤️</button>
-<button onclick="reactPost(${post.id},'👍')">👍</button>
-<button onclick="reactPost(${post.id},'🔥')">🔥</button>
-<button onclick="reactPost(${post.id},'😂')">😂</button>
-<button onclick="reactPost(${post.id},'🙏')">🙏</button>
-</div>
-
-<div id="reactions${post.id}" class="reaction-list">
-Loading reactions...
-</div>
-
-<div class="comment-box">
-<input id="comment${post.id}" placeholder="Write comment...">
-<button onclick="addComment(${post.id})">Send</button>
-</div>
-
-<div class="comments" id="comments${post.id}">
-Loading comments...
-</div>
-
-</div>
-`;
-
-loadComments(post.id);
-loadReactions(post.id);
-
-}
-
-}
-
-
-/* ADD COMMENT */
-async function addComment(id){
-
-let input = document.getElementById("comment"+id);
-let text = input.value.trim();
-
-if(text===""){
-alert("Please write a comment first");
-return;
-}
-
-const { error } = await client
-.from("comments")
-.insert([{post_id:id,comment:text}]);
-
-if(error){
-alert("Failed: " + error.message);
-console.log(error);
-return;
-}
-
-input.value = "";
-
-loadComments(id);
-
-alert("Your comment was successfully submitted!");
-}
-
-
-/* LOAD COMMENTS */
-async function loadComments(id){
-
-const box = document.getElementById("comments"+id);
-
-const { data, error } = await client
-.from("comments")
-.select("*")
-.eq("post_id",id)
-.order("id",{ascending:false});
-
-if(error){
-box.innerHTML = "Unable to load comments";
-console.log(error);
-return;
-}
-
-box.innerHTML = `<h4>Comments (${data.length})</h4>`;
-
-if(data.length===0){
-box.innerHTML += "<p>No comments yet.</p>";
-return;
-}
-
-data.forEach(c=>{
-box.innerHTML += `<p>💬 ${c.comment}</p>`;
-});
-
-}
-
-
-/* ADD REACTION */
-async function reactPost(id,emoji){
-
-const { error } = await client
-.from("reactions")
-.insert([{post_id:id,emoji:emoji}]);
-
-if(error){
-alert("Failed: " + error.message);
-console.log(error);
-return;
-}
-
-loadReactions(id);
-
-alert("Reaction added " + emoji);
-}
-
-
-/* LOAD REACTIONS */
-async function loadReactions(id){
-
-const box = document.getElementById("reactions"+id);
-
-const { data, error } = await client
-.from("reactions")
-.select("*")
-.eq("post_id",id);
-
-if(error){
-box.innerHTML = "Unable to load reactions";
-console.log(error);
-return;
-}
-
-if(!data || data.length===0){
-box.innerHTML = "No reactions yet";
-return;
-}
-
-let counts = {};
-
-data.forEach(r=>{
-counts[r.emoji] = (counts[r.emoji] || 0) + 1;
-});
-
-let html = "";
-
-for(let emoji in counts){
-html += `
-<span style="
-display:inline-block;
-background:#f4f4f4;
-padding:6px 10px;
-margin:4px;
-border-radius:20px;
-font-weight:bold;
-">
-${emoji} ${counts[emoji]}
-</span>
-`;
-}
-
-box.innerHTML = html;
-}
-
-loadPosts();
-</script>
-
 </body>
+
 </html>
