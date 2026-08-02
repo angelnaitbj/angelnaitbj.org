@@ -1,210 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navenie - Angel Naitbj</title>
-  <style>
-    body { 
-      font-family: Arial, sans-serif; 
-      margin: 0; 
-      background: #eddcea; 
-    }
 
-    header { 
-      background: #333; 
-      color: rgb(207, 15, 15); 
-      text-align: center; 
-      padding: 50px 20px; 
-    }
-    header h1 { 
-      font-size: 2.2rem; 
-      margin: 0; 
-      text-shadow: 2px 2px 4px #000, -1px -1px 2px #555;
-    }
+<meta charset="UTF-8">
 
-    /* Navigation Bar */
-    nav { 
-      background: #100f0f; 
-      position: relative;
-    }
-    .nav-links {
-      display: flex; 
-      justify-content: center; 
-      flex-wrap: wrap;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .nav-links li {
-      position: relative;
-    }
-    .nav-links a { 
-      color: rgb(203, 178, 19); 
-      text-decoration: none; 
-      padding: 12px 18px; 
-      display: block; 
-      font-size: 1rem;
-      transition: background 0.3s ease, transform 0.2s;
-      text-shadow: 1px 1px 2px #000;
-    }
-    .nav-links a:hover { 
-      background: #7d784cd8; 
-      transform: translateY(-2px);
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* Dropdown */
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background: #222;
-      min-width: 180px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      border-radius: 4px;
-    }
-    .dropdown-content a {
-      color: white;
-      padding: 10px 15px;
-      font-size: 0.85rem;
-      border-bottom: 1px solid #333;
-      text-shadow: 1px 1px 2px #000;
-    }
-    .dropdown-content a:last-child {
-      border-bottom: none;
-    }
-    .dropdown-content a:hover {
-      background: #444;
-    }
 
-    /* Caret Icon */
-    .dropdown > a::after {
-      content: " ▼";
-      font-size: 0.7rem;
-    }
+<title>NAVENIE™ - Angel Naitbj</title>
 
-    /* Hamburger Menu (mobile) */
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 5px;
-      position: absolute;
-      top: 15px;
-      right: 20px;
-    }
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background: rgb(122, 6, 59);
-      border-radius: 2px;
-      transition: 0.3s;
-    }
 
-    /* Hide nav links on mobile */
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        display: none;
-        background: #100f0f;
-      }
-      .nav-links li {
-        width: 100%;
-      }
-      .nav-links a {
-        padding: 12px;
-        font-size: 0.9rem;
-      }
-      .dropdown-content {
-        position: static;
-        box-shadow: none;
-      }
-      .hamburger {
-        display: flex;
-      }
-      .nav-links.active {
-        display: flex;
-      }
-    }
+<!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    /* Section */
-    section { 
-      text-align: center; 
-      padding: 50px 20px; 
-    }
-    section h1 { 
-      font-size: 1.8rem; 
-      margin-bottom: 20px; 
-      text-shadow: 2px 2px 4px #555, -1px -1px 2px #aaa;
-    }
-    section h2 { 
-      margin: 20px 0 10px; 
-      font-size: 1.5rem; 
-      text-shadow: 1px 1px 3px #444;
-    }
-    section p { 
-      max-width: 700px; 
-      margin: auto; 
-      font-size: 1rem; 
-      line-height: 1.6; 
-    }
-    section img { 
-      max-width: 600px; 
-      width: 100%; 
-      border-radius: 10px; 
-      margin: 20px auto; 
-      display: block; 
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
 
-    /* Footer */
-    footer { 
-      text-align: center; 
-      padding: 20px; 
-      background: #222; 
-      color: rgb(229, 202, 217); 
-      text-shadow: 1px 1px 3px #000;
-    }
-  </style>
+<!-- Bootstrap -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- Icons -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+
+<!-- Font -->
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+
+<style>
+
+
+body{
+
+font-family:'Poppins',sans-serif;
+background:#f5f7fb;
+
+}
+
+
+
+.text-gold{
+
+color:#d4af37;
+
+}
+
+
+
+.hero-navenie{
+
+
+background:
+
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+url("hero.jpg");
+
+
+background-size:cover;
+background-position:center;
+
+
+padding:120px 0;
+
+
+}
+
+
+
+.navenie-logo{
+
+width:400px;
+max-width:100%;
+filter:drop-shadow(0 20px 30px rgba(0,0,0,.5));
+
+}
+
+
+
+.card-modern{
+
+border:none;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,.1);
+transition:.3s;
+
+}
+
+
+.card-modern:hover{
+
+transform:translateY(-10px);
+
+}
+
+
+
+</style>
+
+
 </head>
+
+
+
 <body>
-  <header>
-    <h1>NAVENIE™</h1>
-  </header>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="christuneocreatology.html">CHRISTUNEOCREATOLOGY™</a></li>
-      <li class="dropdown">
-        <a href="navenie.html">NAVENIE™</a>
-        <div class="dropdown-content">
-          <a href="navenieeducation.html">NAVENIE EDUCATION</a>
-          <a href="naveniecommunity.html">NAVENIE COMMUNITY</a>
-        </div>
-      </li>
-      <li><a href="contact.html">CONTACT</a></li>
-    </ul>
-  </nav>
 
-  <!-- Main Section -->
-  <section>
-    <h1>Experience the Power of SCIENCE and TECHNOLOGY with NAVENIE™</h1>
-    <img src="navenie.jpg" alt="Navenie Image">
-    <h2>Select a Path</h2>
-    <p>Click one of the NAVENIE™ dropdown options above 👆 to explore NAVENIE™ products and services.</p>
-  </section>
 
-  <footer>
-    <p>&copy; 2026 angelnaitbj.org | All Rights Reserved</p>
-  </footer>
+
+<!-- NAVBAR -->
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+
+
+<div class="container">
+
+
+<a class="navbar-brand fw-bold d-flex align-items-center"
+href="index.html">
+
+
+<img src="logo.png"
+width="45"
+class="me-2">
+
+
+<span class="text-warning">
+
+ANGEL NAITBJ
+
+</span>
+
+
+</a>
+
+
+
+
+<button class="navbar-toggler"
+data-bs-toggle="collapse"
+data-bs-target="#navbar">
+
+
+<span class="navbar-toggler-icon"></span>
+
+
+</button>
+
+
+
+<div class="collapse navbar-collapse"
+id="navbar">
+
+
+<ul class="navbar-nav ms-auto">
+
+
+
+<li class="nav-item">
+
+<a class="nav-link"
+href="index.html">
+
+Home
+
+</a>
+
+</li>
+
+
+
+<li class="nav-item">
+
+<a class="nav-link"
+href="about.html">
+
+About
+
+</a>
+
+</li>
+
+
+
+<li class="nav-item">
+
+<a class="nav-link"
+href="christuneocreatology.html">
+
+Christuneocreatology™
+
+</a>
+
+</li>
+
+
+
+
+<li class="nav-item dropdown">
+
+
+<a class="nav-link dropdown-toggle active"
+href="#"
+data-bs-toggle="dropdown">
+
+
+NAVENIE™
+
+</a>
+
+
+
+<ul class="dropdown-menu">
+
+
+<li>
+
+<a class="dropdown-item"
+href="navenieeducation.html">
+
+NAVENIE Education
+
+</a>
+
+</li>
+
+
+<li>
+
+<a class="dropdown-item"
+href="naveniecommunity.html">
+
+NAVENIE Community
+
+</a>
+
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+
+
+<li class="nav-item">
+
+<a class="nav-link"
+href="contact.html">
+
+Contact
+
+</a>
+
+</li>
+
+
+
+</ul>
+
+
+</div>
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+<!-- HERO -->
+
+
+<section class="hero-navenie text-white">
+
+
+<div class="container">
+
+
+<div class="row align-items-center">
+
+
+
+<div class="col-lg-6">
+
+
+<span class="badge bg-warning text-dark mb-3">
+
+SCIENCE • TECHNOLOGY • INNOVATION
+
+</span>
+
+
+
+<h1 class="display-3 fw-bold">
+
+NAVENIE™
+
+</h1>
+
+
+
+<h2 class="text-warning">
+
+NAITBJ ANGEL VENTURES INTEGRATED ENVIRONMENTS
+
+</h2>
+
+
+
+<p class="lead mt-4">
+
+An innovation and research-oriented organization
+focused on engineering systems, technology,
+software development, artificial intelligence,
+digital infrastructures and integrated environments.
+
+</p>
+
+
+<a href="#explore"
+class="btn btn-warning rounded-pill px-5 mt-3">
+
+Explore NAVENIE™
+
+</a>
+
+
+
+</div>
+
+
+
+
+
+<div class="col-lg-6 text-center">
+
+
+<img src="navenie.jpg"
+class="navenie-logo">
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- CONTENT -->
+
+
+<section class="py-5"
+id="explore">
+
+
+<div class="container">
+
+
+<div class="text-center mb-5">
+
+
+<h2 class="fw-bold">
+
+Experience the Power of Science and Technology
+
+</h2>
+
+
+<p class="text-muted">
+
+Choose a NAVENIE™ pathway
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="row g-4">
+
+
+
+
+
+<div class="col-lg-6">
+
+
+<div class="card card-modern p-5 h-100">
+
+
+<i class="bi bi-mortarboard-fill text-warning display-4"></i>
+
+
+<h3 class="fw-bold mt-3">
+
+NAVENIE Education
+
+</h3>
+
+
+<p>
+
+A learning ecosystem focused on software engineering,
+technology education, artificial intelligence,
+digital skills development and knowledge advancement.
+
+</p>
+
+
+<a href="navenieeducation.html"
+class="btn btn-warning rounded-pill">
+
+Learn More
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-lg-6">
+
+
+<div class="card card-modern p-5 h-100">
+
+
+<i class="bi bi-people-fill text-warning display-4"></i>
+
+
+<h3 class="fw-bold mt-3">
+
+NAVENIE Community
+
+</h3>
+
+
+<p>
+
+A technology and innovation community designed to
+connect developers, researchers, entrepreneurs and
+creative thinkers.
+
+</p>
+
+
+<a href="naveniecommunity.html"
+class="btn btn-warning rounded-pill">
+
+Explore
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- FOOTER -->
+
+
+<footer class="bg-dark text-white text-center py-4">
+
+
+<img src="logo.png"
+width="60">
+
+
+<h5 class="text-warning mt-2">
+
+ANGEL NAITBJ
+
+</h5>
+
+
+<p>
+
+© 2026 angelnaitbj.org | All Rights Reserved
+
+</p>
+
+
+</footer>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
+
 </html>
