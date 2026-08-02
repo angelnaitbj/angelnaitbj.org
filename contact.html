@@ -1,199 +1,605 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Angel Naitbj</title>
-  <style>
-    body { 
-      font-family: Arial, sans-serif; 
-      margin: 0; 
-      background: #f4f4f9; 
-    }
 
-    /* Header */
-    header { 
-      background: #141413; 
-      color: white; 
-      padding: 15px 20px; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    header h1 { 
-      margin: 0; 
-      font-size: 1.5rem; 
-      color: white;  
-      text-shadow: 2px 2px 5px #000, 4px 4px 10px rgba(0,0,0,0.6); /* 3D effect */
-    }
-    .logo { width: 50px; height: auto; }
-    .contact-link { margin-top: 10px; }
-    .contact-link a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      background: #080808;
-      padding: 8px 15px;
-      border-radius: 5px;
-      font-size: 0.9rem;
-      display: inline-block;
-      text-shadow: 1px 1px 3px #000; /* button 3D */
-    }
-    .contact-link a:hover { background: #777; }
+<meta charset="UTF-8">
 
-    /* Navbar */
-    nav { 
-      background: #444; 
-      padding: 10px; 
-      display: flex; 
-      flex-wrap: wrap; 
-      justify-content: center; 
-    }
-    nav a { 
-      color: rgb(176, 189, 26); 
-      text-decoration: none; 
-      margin: 5px 15px; 
-      font-size: 1rem;
-      font-weight: bold;
-      text-shadow: 1px 1px 4px #000; /* 3D nav text */
-    }
-    nav a:hover { 
-      text-decoration: underline; 
-      color: gold; 
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* Main Section */
-    section { 
-      padding: 30px 15px; 
-      max-width: 900px; 
-      margin: auto; 
-    }
-    h2 { 
-      color: rgb(53, 69, 9); 
-      margin-bottom: 20px; 
-      text-align: center; 
-      text-shadow: 2px 2px 5px #666, 4px 4px 8px rgba(0,0,0,0.4); /* 3D title */
-    }
 
-    .info-box {
-      background: #e4d8df;
-      padding: 20px;
-      margin-bottom: 25px;
-      border-radius: 8px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-    }
-    .info-box h3 {
-      margin-top: 0;
-      color: #333;
-      font-size: 1.2rem;
-      text-shadow: 1px 1px 3px #aaa; /* subtle 3D */
-    }
-    .info-box p {
-      margin: 8px 0;
-      line-height: 1.6;
-      font-size: 1rem;
-      word-wrap: break-word;
-      text-shadow: 1px 1px 2px #ddd;
-    }
-    a { color: #0066cc; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+<title>Contact - Angel Naitbj Organization</title>
 
-    /* Footer */
-    footer { 
-      text-align: center; 
-      padding: 20px; 
-      background: #141413; 
-      color: rgb(242, 248, 250); 
-      margin-top: 40px; 
-      font-size: 0.9rem;
-      text-shadow: 2px 2px 4px #000; /* 3D footer */
-    }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      header { 
-        flex-direction: column; 
-        align-items: center; 
-        text-align: center; 
-      }
-      header h1 { font-size: 1.3rem; }
-      .logo { width: 40px; }
-      .contact-link { margin-top: 10px; }
-      nav a { font-size: 0.9rem; margin: 6px; }
-      section { padding: 20px 12px; }
-      .info-box { padding: 15px; }
-      .info-box h3 { font-size: 1rem; }
-      .info-box p { font-size: 0.9rem; }
-    }
+<!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    @media (max-width: 480px) {
-      header h1 { font-size: 1.1rem; }
-      nav a { font-size: 0.85rem; margin: 5px; }
-      .contact-link a { font-size: 0.8rem; padding: 6px 12px; }
-      .info-box { padding: 12px; }
-    }
-  </style>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+
+<style>
+
+body{
+
+font-family:'Poppins',sans-serif;
+background:#f5f7fb;
+
+}
+
+
+.text-gold{
+
+color:#d4af37;
+
+}
+
+
+.btn-gold{
+
+background:#d4af37;
+color:white;
+border-radius:50px;
+padding:12px 35px;
+
+}
+
+
+.btn-gold:hover{
+
+background:#b8860b;
+color:white;
+
+}
+
+
+.contact-card{
+
+border:none;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,.1);
+
+}
+
+
+.contact-hero{
+
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+url("hero.jpg");
+
+background-size:cover;
+background-position:center;
+
+padding:120px 0;
+
+}
+
+
+.social-btn{
+
+border-radius:50px;
+margin:5px;
+
+}
+
+
+</style>
+
+
 </head>
+
+
 <body>
-  <header>
-    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center;">
-      <img src="logo.png" alt="Angel Naitbj Logo" class="logo">
-      <h1>AngelNaitbj.org</h1>
-    </div>
-    <div class="contact-link">
-      <a href="contact.html">Contact</a>
-    </div>
-  </header>
 
-  <nav>
-    <a href="index.html">HOME</a>
-    <a href="christuneocreatology.html">CHRISTUNEOCREATOLOGY™</a>
-    <a href="navenie.html">NAVENIE™</a>
-  </nav>
 
-  <section>
-    <h2>CONNECT WITH US:</h2>
 
-    <div class="info-box">
-      <h3>📞 Reach Us</h3>
-      <p><strong>Phone Call / WhatsApp / Telegram:</strong> 
-        <a href="tel:+2347033962368">+2347033962368</a>
-      </p>
-      <p><strong>Email:</strong><br>
-        <a href="mailto:naitbjangel@yahoo.com">naitbjangel@yahoo.com</a><br>
-        <a href="mailto:naitbjangel@gmail.com">naitbjangel@gmail.com</a><br>
-        <a href="mailto:angelnaitbj@yahoo.com">angelnaitbj@yahoo.com</a><br>
-        <a href="mailto:angelnaitbj@gmail.com">angelnaitbj@gmail.com</a><br>
-        <a href="mailto:info@angelnaitbj.org">info@angelnaitbj.org</a>
-      </p>
-    </div>
+<!-- NAVBAR -->
 
-    <div class="info-box">
-      <h3>💖 Donation & Partnership (Christuneocreatology™)</h3>
-      <p><strong>Account Name:</strong> Tabernacle Feast Of New Creation In Christ Ministry Inc.</p>
-      <p><strong>Account Number:</strong> 7085074019</p>
-      <p><strong>Bank:</strong> First City Monument Bank</p>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
 
-    <div class="info-box">
-      <h3>📝 Registration & Subscription (Navenie™ Products & Services)</h3>
-      <p><strong>Account Name:</strong> Naitbj Angel Ventures</p>
-      <p><strong>Account Number:</strong> 7033962368</p>
-      <p><strong>Bank:</strong> Moniepoint</p>
-    </div>
 
-    <div class="info-box">
-      <h3>🌍 International / Foreign Payments</h3>
-      <p>
-        For easy payments by foreigners, please use:<br>
-        <a href="https://eversend.me/angelnaitbjtv" target="_blank">https://eversend.me/angelnaitbjtv</a>
-      </p>
-    </div>
-  </section>
+<div class="container">
 
-  <footer>
-    <p>&copy; 2026 angelnaitbj.org | All Rights Reserved</p>
-  </footer>
+
+<a class="navbar-brand fw-bold d-flex align-items-center"
+href="index.html">
+
+
+<img src="logo.png"
+width="45"
+class="me-2">
+
+
+<span class="text-warning">
+
+ANGEL NAITBJ
+
+</span>
+
+
+</a>
+
+
+
+<button class="navbar-toggler"
+data-bs-toggle="collapse"
+data-bs-target="#navbar">
+
+
+<span class="navbar-toggler-icon"></span>
+
+
+</button>
+
+
+
+<div class="collapse navbar-collapse"
+id="navbar">
+
+
+<ul class="navbar-nav ms-auto">
+
+
+<li class="nav-item">
+<a class="nav-link" href="index.html">
+Home
+</a>
+</li>
+
+
+<li class="nav-item">
+<a class="nav-link" href="about.html">
+About
+</a>
+</li>
+
+
+<li class="nav-item">
+<a class="nav-link" href="christuneocreatology.html">
+Christuneocreatology™
+</a>
+</li>
+
+
+<li class="nav-item">
+<a class="nav-link" href="navenie.html">
+NAVENIE™
+</a>
+</li>
+
+
+<li class="nav-item">
+<a class="nav-link active" href="contact.html">
+Contact
+</a>
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+<!-- HERO -->
+
+
+<section class="contact-hero text-center text-white">
+
+
+<div class="container">
+
+
+<h1 class="display-4 fw-bold">
+
+CONTACT ANGEL NAITBJ
+
+</h1>
+
+
+<p class="lead">
+
+Connect with our organizations,
+initiatives, research and innovation platforms.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- CONTACT INFORMATION -->
+
+
+<section class="py-5">
+
+
+<div class="container">
+
+
+<div class="text-center mb-5">
+
+
+<h2 class="fw-bold">
+
+CONNECT WITH US
+
+</h2>
+
+
+<p class="text-muted">
+
+Reach Angel Naitbj Organization
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="row g-4">
+
+
+
+<div class="col-lg-6">
+
+
+<div class="card contact-card p-4 h-100">
+
+
+<h4 class="text-gold fw-bold">
+
+<i class="bi bi-telephone-fill"></i>
+
+Reach Us
+
+</h4>
+
+
+<hr>
+
+
+<p>
+
+<strong>Phone / WhatsApp / Telegram:</strong><br>
+
+<a href="tel:+2347033962368">
+
++2347033962368
+
+</a>
+
+</p>
+
+
+
+<p>
+
+<strong>Email:</strong><br>
+
+<a href="mailto:naitbjangel@yahoo.com">
+
+naitbjangel@yahoo.com
+
+</a><br>
+
+
+<a href="mailto:naitbjangel@gmail.com">
+
+naitbjangel@gmail.com
+
+</a><br>
+
+
+<a href="mailto:info@angelnaitbj.org">
+
+info@angelnaitbj.org
+
+</a>
+
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-lg-6">
+
+
+<div class="card contact-card p-4 h-100">
+
+
+<h4 class="text-gold fw-bold">
+
+<i class="bi bi-heart-fill"></i>
+
+Donation & Partnership
+
+</h4>
+
+
+<hr>
+
+
+<p>
+
+<strong>Organization:</strong><br>
+
+Tabernacle Feast Of New Creation In Christ Ministry Inc.
+
+</p>
+
+
+<p>
+
+<strong>Account Number:</strong>
+
+7085074019
+
+</p>
+
+
+<p>
+
+<strong>Bank:</strong>
+
+First City Monument Bank
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="col-lg-6">
+
+
+<div class="card contact-card p-4">
+
+
+<h4 class="text-gold fw-bold">
+
+<i class="bi bi-cpu-fill"></i>
+
+NAVENIE™ Products & Services
+
+</h4>
+
+
+<hr>
+
+
+<p>
+
+<strong>Account Name:</strong><br>
+
+Naitbj Angel Ventures
+
+</p>
+
+
+<p>
+
+<strong>Account Number:</strong>
+
+7033962368
+
+</p>
+
+
+<p>
+
+<strong>Bank:</strong>
+
+Moniepoint
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="col-lg-6">
+
+
+<div class="card contact-card p-4">
+
+
+<h4 class="text-gold fw-bold">
+
+<i class="bi bi-globe"></i>
+
+International Payments
+
+</h4>
+
+
+<hr>
+
+
+<p>
+
+Foreign supporters can use:
+
+</p>
+
+
+<a href="https://eversend.me/angelnaitbjtv"
+target="_blank"
+class="btn btn-gold">
+
+Eversend Payment
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- SOCIAL MEDIA -->
+
+
+<section class="py-5 bg-light">
+
+
+<div class="container text-center">
+
+
+<h3 class="fw-bold mb-4">
+
+Follow Angel Naitbj
+
+</h3>
+
+
+<a href="https://facebook.com/angelnaitbj"
+class="btn btn-outline-dark social-btn">
+
+Facebook
+
+</a>
+
+
+<a href="https://youtube.com/@angelnaitbj"
+class="btn btn-outline-dark social-btn">
+
+YouTube
+
+</a>
+
+
+<a href="https://x.com/angelnaitbj"
+class="btn btn-outline-dark social-btn">
+
+X
+
+</a>
+
+
+<a href="https://instagram.com/angelnaitbj"
+class="btn btn-outline-dark social-btn">
+
+Instagram
+
+</a>
+
+
+<a href="http://t.me/angelnaitbjtv"
+class="btn btn-outline-dark social-btn">
+
+Telegram
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- FOOTER -->
+
+
+<footer class="bg-dark text-white text-center py-4">
+
+
+<img src="logo.png"
+width="60"
+class="mb-3">
+
+
+<h5 class="text-warning">
+
+ANGEL NAITBJ
+
+</h5>
+
+
+<p>
+
+© 2026 angelnaitbj.org | All Rights Reserved
+
+</p>
+
+
+</footer>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
+
 </html>
