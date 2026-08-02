@@ -34,85 +34,120 @@
 
 
 body{
-
-font-family:'Poppins',sans-serif;
-background:#f5f7fb;
-color:#222;
-line-height:1.8;
-
+    font-family:'Poppins',sans-serif;
+    background:#f5f7fb;
+    color:#222;
+    line-height:1.8;
+    overflow-x:hidden;
 }
-
-
 
 .text-gold{
-
-color:#d4af37;
-
+    color:#d4af37;
 }
-
-
 
 .btn-gold{
-
-background:#d4af37;
-color:white;
-border-radius:50px;
-padding:12px 35px;
-font-weight:600;
-
+    background:#d4af37;
+    color:#fff;
+    border-radius:50px;
+    padding:12px 35px;
+    font-weight:600;
 }
-
-
 
 .btn-gold:hover{
-
-background:#b8860b;
-color:white;
-
+    background:#b8860b;
+    color:#fff;
 }
-
-
 
 .hero{
-
-background:
-linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-url("christuneo.jpg");
-
-background-size:cover;
-background-position:center;
-
-padding:150px 0;
-
+    background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+    url("christuneo.jpg");
+    background-size:cover;
+    background-position:center;
+    padding:120px 0;
 }
-
-
 
 .section-title{
-
-font-weight:800;
-
+    font-weight:800;
 }
-
-
 
 .card-modern{
+    border:none;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    overflow:hidden;
+    height:100%;
+}
 
-border:none;
-border-radius:20px;
-box-shadow:0 15px 40px rgba(0,0,0,.08);
+.card-modern img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.branch-image{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+@media (max-width:991px){
+
+    .hero{
+        padding:90px 0;
+    }
+
+    .hero h1{
+        font-size:2rem;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    .card-modern img{
+        height:220px;
+    }
 
 }
 
+@media (max-width:768px){
 
+    .hero{
+        padding:70px 15px;
+        text-align:center;
+    }
 
-.branch-image{
+    .hero h1{
+        font-size:1.8rem;
+    }
 
-width:100%;
-height:300px;
-object-fit:cover;
-border-radius:20px;
+    .section-title{
+        font-size:1.8rem;
+    }
 
+    .card-modern{
+        margin-bottom:20px;
+    }
+
+    .card-modern img{
+        height:200px;
+    }
+
+    .branch-image{
+        height:220px;
+    }
+
+    .btn-gold{
+        width:100%;
+    }
+
+}
+
+img{
+    max-width:100%;
+    height:auto;
 }
 
 
