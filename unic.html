@@ -1,294 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>University of Christuneocreatology (UNIC)</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #e9dde8;
-      color: #111;
-    }
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    /* ===== HEADER ===== */
-    header {
-      background: #2b2b2b;
-      padding: 25px 15px;
-      text-align: center;
-      color: #c90a0a;
-    }
+    <title>
+        University of Christuneocreatology (UNIC) | Angel Naitbj
+    </title>
 
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      text-shadow: 2px 2px 5px #000;
-    }
+    <!-- Favicon -->
+    <link rel="icon"
+          type="image/x-icon"
+          href="favicon.ico">
 
-    header h2 {
-      margin-top: 8px;
-      font-size: 1.1rem;
-      color: #e0c55a;
-      text-shadow: 1px 1px 3px #000;
-    }
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
 
-    /* ===== NAVIGATION ===== */
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      background: #100e0e;
-    }
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
+          rel="stylesheet">
 
-    nav a {
-      color: #bda610;
-      text-decoration: none;
-      padding: 15px 20px;
-      font-weight: bold;
-      text-align: center;
-    }
+    <style>
 
-    nav a:hover {
-      background: #7d784c;
-      color: #000;
-    }
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+            background:#f8f9fa;
+            color:#212529;
+        }
 
-    /* ===== MAIN CONTENT ===== */
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+        /* ==========================
+           HEADER
+        ========================== */
 
-    .hero-image {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+        .hero-header{
+            background:linear-gradient(135deg,#111,#2b2b2b);
+            color:#fff;
+            padding:80px 20px;
+            text-align:center;
+        }
 
-    .hero-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-    }
+        .hero-header h1{
+            font-weight:700;
+            color:#dc3545;
+            text-shadow:2px 2px 6px #000;
+        }
 
-    section {
-      margin-bottom: 40px;
-    }
+        .hero-header p{
+            color:#ffc107;
+            font-size:1.2rem;
+        }
 
-    section h3 {
-      text-align: center;
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-      text-shadow: 1px 1px 3px #555;
-    }
+        /* ==========================
+           NAVBAR
+        ========================== */
 
-    section p {
-      line-height: 1.7;
-      font-size: 1rem;
-      text-align: justify;
-    }
+        .navbar{
+            background:#000 !important;
+        }
 
-    /* ===== DEGREE BLOCKS ===== */
-    .degree {
-      background: #f4eef3;
-      padding: 20px;
-      margin-top: 20px;
-      border-left: 6px solid #7d784c;
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
+        .navbar-brand{
+            font-weight:bold;
+            color:#ffc107 !important;
+        }
 
-    .degree h4 {
-      margin-top: 0;
-      color: #333;
-    }
+        .nav-link{
+            color:#fff !important;
+            font-weight:500;
+        }
 
-    /* ===== FOOTER ===== */
-    footer {
-      background: #222;
-      color: #fff;
-      text-align: center;
-      padding: 20px 10px;
-      text-shadow: 1px 1px 3px #000;
-    }
+        .nav-link:hover{
+            color:#ffc107 !important;
+        }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.6rem;
-      }
+        /* ==========================
+           CONTENT
+        ========================== */
 
-      section p {
-        font-size: 0.95rem;
-      }
-    }
+        .section-title{
+            font-weight:700;
+            margin-bottom:20px;
+            color:#111;
+        }
 
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.4rem;
-      }
+        .hero-image{
+            border-radius:15px;
+            box-shadow:0 10px 30px rgba(0,0,0,.25);
+        }
 
-      nav a {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
+        .degree-card{
+            border:none;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,.12);
+            transition:.3s;
+        }
 
-<body>
+        .degree-card:hover{
+            transform:translateY(-6px);
+        }
 
-  <!-- HEADER -->
-  <header>
-    <h1>UNIVERSITY OF CHRISTUNEOCREATOLOGY (UNIC)</h1>
-    <h2>Christuneocreative Educational System (CES)</h2>
-  </header>
+        /* ==========================
+           FOOTER
+        ========================== */
 
-  <!-- NAVIGATION -->
-  <nav>
-    <a href="index.html">HOME</a>
-    <a href="christuneocreatology.html">CHRISTUNEOCREATOLOGY™</a>
-    <a href="contact.html">CONTACT</a>
-  </nav>
+        footer{
+            background:#111;
+            color:#fff;
+        }
 
-  <!-- MAIN CONTENT -->
-  <main>
+        footer h5{
+            color:#ffc107;
+            font-weight:bold;
+        }
 
-    <!-- IMAGE -->
-    <div class="hero-image">
-      <img src="unic.png" alt="University of Christuneocreatology UNIC">
+    </style>
+  <body class="bg-light">
+
+<!-- HEADER -->
+<header class="bg-dark text-center py-5">
+    <div class="container">
+        <h1 class="display-5 fw-bold text-danger">
+            UNIVERSITY OF CHRISTUNEOCREATOLOGY (UNIC)
+        </h1>
+        <p class="lead text-warning mb-0">
+            Christuneocreative Educational System (CES)
+        </p>
     </div>
+    
 
-    <!-- INTRODUCTION -->
-    <section>
-      <h3>Christuneocreative Educational System (CES)</h3>
-      <p>
-        Within the University of Christuneocreatology UNIC, the Christuneocreative Educational System operates through a Learning by Doing model that emphasizes transformation through active participation, creative engagement, and practical responsibility. This model affirms that true knowledge is demonstrated through application rather than memorization. Learning is measured by alignment, usefulness, innovation, and positive impact on human development.
-      </p>
-    </section>
+</header>
 
-  <p>
-    The <strong>Christuneocreative Educational System (CES)</strong> is an educational philosophy
-    and framework within <strong>Christuneocreatology™</strong> that integrates
-    <strong>Solution-Based Education (SBE)</strong>,
-    <strong>Competency-Based Education (CBE)</strong>,
-    <strong>Outcome-Based Education (OBE)</strong>,
-    <strong>Performance-Based Education (PBE)</strong>,
-    <strong>Project-Based Education (PjBE)</strong>, and
-    <strong>Experiential Education (EE)</strong> into a unified educational system for developing
-    individuals who contribute to the advancement of
-    <strong>Christuneocreative civilization</strong>.
-  </p>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
+    <div class="container">
 
-  <p>
-    Unlike conventional educational systems that primarily emphasize classroom attendance,
-    examinations, and theoretical knowledge, CES emphasizes learning by doing, creating,
-    innovating, and solving real societal problems. It measures education by an individual's
-    demonstrated competence, practical performance, innovation, ethical character, creativity,
-    and measurable contribution to humanity.
-  </p>
+        <a class="navbar-brand fw-bold text-warning" href="index.html">
+            ANGEL NAITBJ
+        </a>
 
-  <p>
-    <strong>Solution-Based Education (SBE)</strong> is the foundation and distinguishing feature
-    of CES. Learning is validated by the learner's ability to identify, design, implement, and
-    verify practical solutions to real-world challenges. Academic recognition is based not only
-    on knowledge acquisition but also on the measurable effectiveness, ethical responsibility,
-    sustainability, and societal impact of the solutions produced. Under SBE, education is
-    considered complete only when knowledge has been transformed into practical value that
-    advances individuals, communities, industries, or civilization.
-  </p>
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <p>
-    <strong>Competency-Based Education (CBE)</strong> ensures that learners demonstrate verified
-    knowledge, skills, and abilities. Recognition is earned based on what learners can
-    consistently do rather than the amount of time spent in classrooms.
-  </p>
+        <div class="collapse navbar-collapse" id="navbarNav">
 
-  <p>
-    <strong>Outcome-Based Education (OBE)</strong> ensures that every educational activity
-    achieves clearly defined outcomes that contribute to personal transformation, innovation,
-    societal development, and the advancement of Christuneocreative civilization.
-  </p>
+            <ul class="navbar-nav ms-auto">
 
-  <p>
-    <strong>Performance-Based Education (PBE)</strong> evaluates learners through practical
-    performance, professional competence, leadership, innovation, and their ability to apply
-    knowledge effectively in real-life situations.
-  </p>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">HOME</a>
+                </li>
 
-  <p>
-    <strong>Project-Based Education (PjBE)</strong> requires learners to develop practical
-    projects, inventions, businesses, technologies, research, or community initiatives that
-    address genuine human and societal needs.
-  </p>
+                <li class="nav-item">
+                    <a class="nav-link" href="christuneocreatology.html">
+                        CHRISTUNEOCREATOLOGY™
+                    </a>
+                </li>
 
-  <p>
-    <strong>Experiential Education (EE)</strong> reinforces the principle of learning by doing.
-    Learners acquire, demonstrate, and validate knowledge through direct experience,
-    observation, experimentation, application, reflection, research, innovation,
-    entrepreneurship, community service, and continuous improvement.
-  </p>
+                <li class="nav-item">
+                    <a class="nav-link" href="navenie.html">
+                        NAVENIE™
+                    </a>
+                </li>
 
-  <p>
-    Within CES, certificates, licenses, diplomas, degrees, and professional recognition are
-    awarded based on demonstrated competence, verified solutions, ethical conduct, innovation,
-    practical achievements, and measurable societal impact, rather than being determined
-    primarily by classroom hours, written examinations, or the accumulation of academic credits.
-  </p>
+                <li class="nav-item ms-lg-3">
+                    <a href="contact.html"
+                       class="btn btn-warning rounded-pill px-4">
+                        Contact
+                    </a>
+                </li>
 
-  <p>
-    The ultimate objective of the <strong>Christuneocreative Educational System (CES)</strong>
-    is to produce <strong>Christuneocreators</strong>—individuals who possess sound character,
-    practical competence, innovative capacity, philosophical understanding, spiritual maturity,
-    scientific reasoning, and technological capability to create sustainable solutions and
-    contribute meaningfully to the advancement of
-    <strong>Christuneocreative civilization</strong>.
-  </p>
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+<!-- MAIN -->
+<section class="py-5">
+
+<div class="container">
+
+<div class="text-center mb-5">
+
+<img src="unic.png"
+     class="img-fluid rounded shadow"
+     style="max-width:700px;"
+     alt="UNIC">
+
+</div>
+
+<div class="card shadow-lg border-0 mb-4">
+
+<div class="card-body p-4">
+
+<h2 class="fw-bold text-center mb-4">
+Christuneocreative Educational System (CES)
+</h2>
+
+<p>
+Within the University of Christuneocreatology (UNIC), the Christuneocreative Educational System (CES) operates through a Learning by Doing model that emphasizes transformation through active participation, creative engagement, and practical responsibility.
+</p>
+
+<p>
+The CES integrates Solution-Based Education (SBE), Competency-Based Education (CBE), Outcome-Based Education (OBE), Performance-Based Education (PBE), Project-Based Education (PjBE), and Experiential Education (EE) into one unified educational framework.
+</p>
+
+<p>
+Unlike conventional education that emphasizes examinations and theoretical knowledge, CES focuses on innovation, practical competence, measurable outcomes, and solving real-world problems.
+</p>
+
+<p>
+Education within CES is evaluated through demonstrated competence, innovation, ethical responsibility, practical performance, and meaningful contributions to society.
+</p>
+
+<p>
+Its ultimate mission is to develop Christuneocreators—individuals equipped with knowledge, creativity, scientific reasoning, technological capability, leadership, and moral character.
+</p>
+
+</div>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+
+<div class="card h-100 shadow border-0">
+
+<div class="card-body">
+
+<h4 class="fw-bold text-warning">
+Literacy Level
+</h4>
+
+<h6 class="fw-bold">
+Christuneocreative Basic Academic Degree
+</h6>
+
+<p>
+Develops literacy, communication, foundational knowledge, logical reasoning, and responsible understanding.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card h-100 shadow border-0">
+
+<div class="card-body">
+
+<h4 class="fw-bold text-warning">
+Competence Level
+</h4>
+
+<h6 class="fw-bold">
+Christuneocreative Vocational Degree
+</h6>
+
+<p>
+Focuses on practical skills, projects, applied learning, problem solving, and real-world competence.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<div class="card h-100 shadow border-0">
+
+<div class="card-body">
+
+<h4 class="fw-bold text-warning">
+Innovation Level
+</h4>
+
+<h6 class="fw-bold">
+Christuneocreative Professional Degree
+</h6>
+
+<p>
+Emphasizes innovation, research, leadership, invention, entrepreneurship, and transformational impact.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card shadow border-0 mt-5">
+
+<div class="card-body">
+
+<p class="mb-0">
+The Learning by Doing model ensures that education progresses from literacy to competence and finally to innovation. Through CES, the University of Christuneocreatology prepares individuals to demonstrate knowledge through action, leadership through service, and creativity through disciplined alignment for the advancement of a Christuneocreative Civilization.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="mt-4">
+
+    <a href="contact.html"
+       class="btn btn-warning btn-lg fw-bold px-5 py-3 rounded-pill shadow-lg">
+
+        <i class="bi bi-mortarboard-fill me-2"></i>
+        CLICK TO BECOME A STUDENT
+
+    </a>
+
+</div>
+
 </section>
 
-    <!-- BASIC DEGREE -->
-    <section class="degree">
-      <h4>Christuneocreative Basic Academic Degree (Literacy Level)</h4>
-      <p>
-        At the Christuneocreative Basic Academic Degree level, the focus is on literacy. This stage develops the learner’s ability to read, write, communicate, and understand foundational concepts across disciplines. Learners build intellectual awareness, logical reasoning, and disciplined thinking through guided exercises, reflective study, and introductory practical activities. Literacy at this level is not limited to language alone but includes numerical understanding, conceptual clarity, moral awareness, and the ability to interpret knowledge responsibly.
-      </p>
-    </section>
+<!-- FOOTER -->
 
-    <!-- VOCATIONAL DEGREE -->
-    <section class="degree">
-      <h4>Christuneocreative Vocational Degree (Competence Level)</h4>
-      <p>
-        At the Christuneocreative Vocational Degree level, Learning by Doing becomes more skill oriented. Learners translate foundational literacy into applied competence through practical projects, system development tasks, collaborative engagement, and structured problem solving. This stage emphasizes precision, accountability, and reliability as learners demonstrate their ability to apply knowledge effectively in real situations.
-      </p>
-    </section>
+<footer class="bg-dark text-center text-white py-4">
 
-    <!-- PROFESSIONAL DEGREE -->
-    <section class="degree">
-      <h4>Christuneocreative Professional Degree (Innovation Level)</h4>
-      <p>
-        At the Christuneocreative Professional Degree level, Learning by Doing advances into innovation, leadership, and system creation. Learners engage in original research, invention, strategic development, and mentorship roles. Education at this stage is expressed through the ability to create new frameworks, guide transformation, and contribute meaningful solutions that advance society.
-      </p>
-    </section>
+<div class="container">
 
-    <!-- CONCLUSION -->
-    <section>
-      <p>
-        The CES Learning by Doing model ensures that education remains purposeful and transformative, beginning with literacy, advancing through competence, and culminating in innovation. Through this structured progression, the University of Christuneocreatology UNIC continues to develop Christuneocreative individuals who demonstrate knowledge through action, leadership through service, and creativity through disciplined alignment.
-      </p>
-    </section>
+<h5 class="text-warning fw-bold">
+ANGEL NAITBJ
+</h5>
 
-  </main>
+<img src="logo.png"
+     width="60"
+     class="my-3"
+     alt="Angel Naitbj Logo">
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 angelnaitbj.org |All Rights Reserved  </p>
-  </footer>
+<p class="mb-0">
+© 2026 angelnaitbj.org | All Rights Reserved
+</p>
 
-</body>
-</html>
+</div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>  
+
+</head>
