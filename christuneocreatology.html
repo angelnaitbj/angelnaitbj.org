@@ -150,7 +150,54 @@ img{
     height:auto;
 }
 
+/* ===== Responsive Long Heading ===== */
 
+.hero h1{
+    font-size:3rem;
+    font-weight:800;
+    line-height:1.2;
+    word-break:break-word;
+    overflow-wrap:break-word;
+}
+
+.hero h1 .christuneo-word{
+    font-size:0.8em;
+    display:inline-block;
+}
+
+@media (max-width:992px){
+
+    .hero h1{
+        font-size:2.3rem;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .hero h1{
+        font-size:1.7rem;
+    }
+
+    .hero h1 .christuneo-word{
+        display:block;
+        font-size:0.75em;
+        margin-top:8px;
+    }
+
+}
+
+@media (max-width:576px){
+
+    .hero h1{
+        font-size:1.45rem;
+    }
+
+    .hero h1 .christuneo-word{
+        font-size:0.72em;
+    }
+
+}
 </style>
 
 
