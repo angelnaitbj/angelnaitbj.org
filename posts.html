@@ -96,7 +96,18 @@ class="btn btn-primary mb-3">
 
 <h2>${post.title}</h2>
 
-<p>${post.content}</p>
+<p id="postText${post.id}">
+    ${post.content.length > 300
+        ? post.content.substring(0,300) +
+          `... <a href="#" onclick="showMore(${post.id});return false;">Read More</a>`
+        : post.content}
+</p>
+
+<input
+type="hidden"
+id="fullPost${post.id}"
+value="${encodeURIComponent(post.content)}">
+
 
 <small class="text-muted">
 ${new Date(post.created_at).toLocaleString()}
@@ -149,9 +160,21 @@ Post Comment
 
 <div class="comments mt-4">
 
-<h5>Comments</h5>
+<button
+class="btn btn-outline-secondary btn-sm mb-2"
+onclick="toggleComments(${post.id})">
+
+💬 View Comments
+
+</button>
+
+<div
+id="comments${post.id}"
+style="display:none;">
 
 ${comments}
+
+</div>
 
 </div>
 
@@ -186,6 +209,44 @@ async function loadComments(postId){
 
         </div>
     `).join("");
+
+}
+
+async function showMore(id){
+
+    const full = decodeURIComponent(
+        document.getElementById("fullPost" + id).value
+    );
+
+    document.getElementById("postText" + id).innerHTML =
+        full +
+        ` <a href="#" onclick="showLess(${id});return false;">Read Less</a>`;
+}
+
+async function showLess(id){
+
+    const full = decodeURIComponent(
+        document.getElementById("fullPost" + id).value
+    );
+
+    const shortText =
+        full.length > 300
+            ? full.substring(0, 300)
+            : full;
+
+    document.getElementById("postText" + id).innerHTML =
+        shortText +
+        `... <a href="#" onclick="showMore(${id});return false;">Read More</a>`;
+}
+
+async function toggleComments(id){
+
+    const box = document.getElementById("comments" + id);
+
+    box.style.display =
+        box.style.display === "none"
+        ? "block"
+        : "none";
 
 }
 
