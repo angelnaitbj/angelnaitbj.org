@@ -18,74 +18,76 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Supabase -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
+    <script>
 const SUPABASE_URL = "https://dvidfezruzupnxizexpl.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_DZoa0xi7W7PqrPWkxJtqSw_rn0htocy";
+const SUPABASE_KEY = "sb_publishable_DZoa0xi7W7PqrPWkxJtqSw_rn0htocy";
 
-const supabase = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-);
+const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-async function loadPosts(){
+async function loadPosts() {
 
     const container = document.getElementById("postsContainer");
 
-    container.innerHTML = "<h4 class='text-center'>Loading posts...</h4>";
+    try {
 
-    const { data, error } = await supabase
-        .from("posts")
-        .select("*")
-        .order("created_at", { ascending: false });
+        const { data, error } = await client
+            .from("posts")
+            .select("*")
+            .order("created_at", { ascending: false });
 
-    if(error){
-        container.innerHTML = `
-            <div class="alert alert-danger">
-                ${error.message}
+        console.log("Posts:", data);
+        console.log("Error:", error);
+
+        if (error) {
+            container.innerHTML =
+                `<div class="alert alert-danger">
+                    <strong>Error:</strong><br>
+                    ${JSON.stringify(error)}
+                </div>`;
+            return;
+        }
+
+        if (!data || data.length === 0) {
+            container.innerHTML =
+                `<div class="alert alert-warning">
+                    No posts found.
+                </div>`;
+            return;
+        }
+
+        container.innerHTML = "";
+
+        data.forEach(post => {
+
+            container.innerHTML += `
+            <div class="post">
+
+                ${post.image_url ? `<img src="${post.image_url}" class="img-fluid rounded mb-3">` : ""}
+
+                <h2>${post.title ?? ""}</h2>
+
+                <p>${post.content ?? ""}</p>
+
+                <small class="text-muted">
+                    ${post.created_at ? new Date(post.created_at).toLocaleString() : ""}
+                </small>
+
             </div>`;
-        return;
-    }
+        });
 
-    if(data.length === 0){
-        container.innerHTML = `
-            <div class="alert alert-warning">
-                No posts available.
+    } catch(err) {
+
+        console.error(err);
+
+        container.innerHTML =
+            `<div class="alert alert-danger">
+                ${err}
             </div>`;
-        return;
     }
-
-    container.innerHTML = "";
-
-    data.forEach(post=>{
-
-        container.innerHTML += `
-        <div class="post">
-
-            ${post.image_url ? `
-            <img src="${post.image_url}"
-                 class="img-fluid rounded mb-3"
-                 alt="Post Image">
-            ` : ""}
-
-            <h2>${post.title}</h2>
-
-            <p>${post.content}</p>
-
-            <small class="text-muted">
-                ${new Date(post.created_at).toLocaleString()}
-            </small>
-
-        </div>
-        `;
-
-    });
 
 }
 
-loadPosts();
+document.addEventListener("DOMContentLoaded", loadPosts);
 </script>
 
     <style>
