@@ -24,107 +24,183 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css"
           rel="stylesheet">
+ <style>
 
-    <style>
+      body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f8f9fa;
+    color:#212529;
+    overflow-x:hidden;
+}
 
-        body{
-            font-family:Arial, Helvetica, sans-serif;
-            background:#f8f9fa;
-            color:#212529;
-        }
+/* HEADER */
 
-        /* ==========================
-           HEADER
-        ========================== */
+.hero-header{
+    background:linear-gradient(135deg,#111,#2b2b2b);
+    color:#fff;
+    padding:80px 20px;
+    text-align:center;
+}
 
-        .hero-header{
-            background:linear-gradient(135deg,#111,#2b2b2b);
-            color:#fff;
-            padding:80px 20px;
-            text-align:center;
-        }
+.hero-header h1{
+    font-weight:700;
+    color:#dc3545;
+    text-shadow:2px 2px 6px #000;
+}
 
-        .hero-header h1{
-            font-weight:700;
-            color:#dc3545;
-            text-shadow:2px 2px 6px #000;
-        }
+.hero-header p{
+    color:#ffc107;
+    font-size:1.2rem;
+}
 
-        .hero-header p{
-            color:#ffc107;
-            font-size:1.2rem;
-        }
+/* NAVBAR */
 
-        /* ==========================
-           NAVBAR
-        ========================== */
+.navbar{
+    background:#000!important;
+}
 
-        .navbar{
-            background:#000 !important;
-        }
+.navbar-brand{
+    font-weight:bold;
+}
 
-        .navbar-brand{
-            font-weight:bold;
-            color:#ffc107 !important;
-        }
+.nav-link{
+    color:#fff!important;
+    font-weight:500;
+}
 
-        .nav-link{
-            color:#fff !important;
-            font-weight:500;
-        }
+.nav-link:hover{
+    color:#ffc107!important;
+}
 
-        .nav-link:hover{
-            color:#ffc107 !important;
-        }
+/* IMAGE */
 
-        /* ==========================
-           CONTENT
-        ========================== */
+.hero-image{
+    width:100%;
+    max-width:700px;
+    height:auto;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
 
-        .section-title{
-            font-weight:700;
-            margin-bottom:20px;
-            color:#111;
-        }
+/* CARDS */
 
-        .hero-image{
-            border-radius:15px;
-            box-shadow:0 10px 30px rgba(0,0,0,.25);
-        }
+.card{
+    border:none;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+}
 
-        .degree-card{
-            border:none;
-            border-radius:15px;
-            box-shadow:0 10px 25px rgba(0,0,0,.12);
-            transition:.3s;
-        }
+.card:hover{
+    transform:translateY(-6px);
+}
 
-        .degree-card:hover{
-            transform:translateY(-6px);
-        }
+.card-body{
+    padding:25px;
+}
 
-        /* ==========================
-           FOOTER
-        ========================== */
+/* BUTTON */
 
-        footer{
-            background:#111;
-            color:#fff;
-        }
+.student-btn{
+    display:inline-block;
+    margin:auto;
+    padding:16px 45px;
+    font-size:1.2rem;
+    font-weight:700;
+    border-radius:50px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
 
-        footer h5{
-            color:#ffc107;
-            font-weight:bold;
-        }
+/* FOOTER */
 
+footer{
+    background:#111;
+    color:#fff;
+}
+
+footer img{
+    max-width:60px;
+    height:auto;
+}
+
+/* TABLET */
+
+@media (max-width:992px){
+
+.hero-header{
+padding:60px 20px;
+}
+
+.hero-header h1{
+font-size:2.2rem;
+}
+
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+.hero-header{
+padding:50px 15px;
+}
+
+.hero-header h1{
+font-size:1.6rem;
+line-height:1.4;
+}
+
+.hero-header p{
+font-size:1rem;
+}
+
+.navbar-brand span{
+font-size:1rem;
+}
+
+.card-body{
+padding:20px;
+}
+
+.student-btn{
+width:100%;
+font-size:1rem;
+padding:15px;
+}
+
+footer{
+text-align:center;
+}
+
+}
+
+/* VERY SMALL DEVICES */
+
+@media (max-width:576px){
+
+.hero-header h1{
+font-size:1.35rem;
+}
+
+.hero-header p{
+font-size:.95rem;
+}
+
+.container{
+padding-left:15px;
+padding-right:15px;
+}
+
+}  
     </style>
+   
   <body class="bg-light">
 
 <!-- HEADER -->
 <header class="bg-dark text-center py-5">
     <div class="container">
         <h1 class="display-5 fw-bold text-danger">
-            UNIVERSITY OF CHRISTUNEOCREATOLOGY (UNIC)
+        UNIVERSITY OF CHRISTUNEOCREATOLOGY (UNIC)
         </h1>
         <p class="lead text-warning mb-0">
             Christuneocreative Educational System (CES)
@@ -134,32 +210,56 @@
 
 </header>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
+<!-- =======================
+     NAVIGATION BAR
+======================== -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+
     <div class="container">
 
-        <a class="navbar-brand fw-bold text-warning" href="index.html">
-            ANGEL NAITBJ
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+
+            <img src="logo.png"
+                 alt="Logo"
+                 width="45"
+                 class="me-2">
+
+            <span class="text-warning">
+                ANGEL NAITBJ 
+            </span>
+
         </a>
 
         <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
+                data-bs-target="#navbar">
+
             <span class="navbar-toggler-icon"></span>
+
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse"
+             id="navbar">
 
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">HOME</a>
+                    <a class="nav-link active" href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">
+                       About
+                    </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link" href="christuneocreatology.html">
-                        CHRISTUNEOCREATOLOGY™
+                        Christuneocreatology™
                     </a>
                 </li>
 
@@ -169,11 +269,16 @@
                     </a>
                 </li>
 
+
                 <li class="nav-item ms-lg-3">
+
                     <a href="contact.html"
                        class="btn btn-warning rounded-pill px-4">
-                        Contact
+
+                        Contact Us
+
                     </a>
+
                 </li>
 
             </ul>
@@ -181,6 +286,7 @@
         </div>
 
     </div>
+
 </nav>
 
 <!-- MAIN -->
@@ -190,10 +296,13 @@
 
 <div class="text-center mb-5">
 
-<img src="unic.png"
-     class="img-fluid rounded shadow"
-     style="max-width:700px;"
-     alt="UNIC">
+<div class="text-center mb-5">
+
+    <img src="unic.png"
+         class="img-fluid hero-image"
+         alt="UNIC">
+
+</div>
 
 </div>
 
@@ -319,15 +428,18 @@ The Learning by Doing model ensures that education progresses from literacy to c
 
 </div>
 
-<div class="mt-4">
+<div class="text-center mt-5">
 
     <a href="contact.html"
-       class="btn btn-warning btn-lg fw-bold px-5 py-3 rounded-pill shadow-lg">
+       class="btn btn-warning student-btn">
 
         <i class="bi bi-mortarboard-fill me-2"></i>
+
         CLICK TO BECOME A STUDENT
 
     </a>
+
+</div>
 
 </div>
 
