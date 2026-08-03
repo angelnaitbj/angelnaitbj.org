@@ -165,22 +165,27 @@ ${comments}
 
 async function loadComments(postId){
 
-const {data,error}=await client
-.from("comments")
-.select("*")
-.eq("post_id",postId)
-.order("created_at",{ascending:true});
+    const { data, error } = await client
+        .from("comments")
+        .select("*")
+        .eq("post_id", postId)
+        .order("created_at", { ascending: true });
 
-if(error) return "";
+    if(error) return "";
 
-if(data.length===0)
-return "<p>No comments yet.</p>";
+    if(data.length === 0){
+        return `<p class="text-muted small mb-0">No comments yet.</p>`;
+    }
 
-return data.map(c => `
-<div class="comment-item">
-    <strong>${c.name}</strong> ${c.comment}
-</div>
-`).join("");
+    return data.map(c => `
+        <div class="comment-item">
+
+            <div class="comment-name">${c.name}</div>
+
+            <div class="comment-text">${c.comment}</div>
+
+        </div>
+    `).join("");
 
 }
 
@@ -422,33 +427,7 @@ border-top:1px solid #ddd;
 padding-top:10px;
 }
 
-/* ===========================
-   FACEBOOK STYLE COMMENTS
-=========================== */
 
-.comment-item{
-    background:#f4f4f4;
-    padding:10px 12px;
-    border-radius:10px;
-    margin-bottom:8px;
-    line-height:1.4;
-    white-space:pre-wrap;
-}
-
-.comment-name{
-    display:block;
-    font-weight:700;
-    color:#111;
-    margin:0;
-    padding:0;
-}
-
-.comment-text{
-    display:block;
-    margin-top:2px;   /* very small gap like Facebook */
-    color:#333;
-    white-space:pre-wrap;
-}
 
 footer{
 text-align:center;
@@ -519,6 +498,56 @@ padding:15px;
 .comment-box button{
     margin-top:6px !important;
 }
+
+/*==============================
+ FACEBOOK COMMENT STYLE
+==============================*/
+
+.comment-item{
+    background:#f0f2f5;
+    border-radius:18px;
+    padding:10px 14px;
+    margin-bottom:10px;
+}
+
+.comment-name{
+    font-weight:700;
+    font-size:15px;
+    color:#050505;
+
+    margin:0 !important;
+    padding:0 !important;
+    line-height:1.05;
+}
+
+.comment-text{
+    margin:0 !important;
+    padding:0 !important;
+    line-height:1.15;
+    font-size:15px;
+    color:#050505;
+    white-space:pre-wrap;
+}
+
+.comment-actions{
+    margin:1px 0 0 0 !important;
+    padding:0 !important;
+    line-height:1;
+    font-size:13px;
+    color:#65676B;
+}
+
+.comment-actions span{
+    cursor:pointer;
+    font-weight:600;
+    margin-right:4px;
+}
+
+.comment-actions span:hover{
+    color:#1877F2;
+    text-decoration:underline;
+}
+
     </style>
 
 </head>
