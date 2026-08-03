@@ -128,17 +128,17 @@ ${new Date(post.created_at).toLocaleString()}
 
 <input
 id="name${post.id}"
-class="form-control mb-2"
+class="form-control mb-1"
 placeholder="Your name">
 
 <textarea
 id="comment${post.id}"
-class="form-control"
+class="form-control mt-1"
 rows="3"
 placeholder="Write a comment"></textarea>
 
 <button
-class="btn btn-dark mt-2"
+class="btn btn-dark mt-1"
 onclick="submitComment(${post.id})">
 
 Post Comment
@@ -176,16 +176,10 @@ if(error) return "";
 if(data.length===0)
 return "<p>No comments yet.</p>";
 
-return data.map(c=>`
-
-<p>
-
-<strong>${c.name}</strong><br>
-
-${c.comment}
-
-</p>
-
+return data.map(c => `
+<div class="comment-item">
+    <strong>${c.name}</strong> ${c.comment}
+</div>
 `).join("");
 
 }
@@ -428,10 +422,32 @@ border-top:1px solid #ddd;
 padding-top:10px;
 }
 
-.comments p{
-background:#f4f4f4;
-padding:10px;
-border-radius:8px;
+/* ===========================
+   FACEBOOK STYLE COMMENTS
+=========================== */
+
+.comment-item{
+    background:#f4f4f4;
+    padding:10px 12px;
+    border-radius:10px;
+    margin-bottom:8px;
+    line-height:1.4;
+    white-space:pre-wrap;
+}
+
+.comment-name{
+    display:block;
+    font-weight:700;
+    color:#111;
+    margin:0;
+    padding:0;
+}
+
+.comment-text{
+    display:block;
+    margin-top:2px;   /* very small gap like Facebook */
+    color:#333;
+    white-space:pre-wrap;
 }
 
 footer{
@@ -482,6 +498,26 @@ padding:15px;
     to{
         transform:rotate(360deg);
     }
+}
+
+/* ===========================
+   COMMENT FORM SPACING
+   Reduces the space between:
+   - Name input
+   - Comment textarea
+   - Submit button
+=========================== */
+
+.comment-box input{
+    margin-bottom:4px !important;
+}
+
+.comment-box textarea{
+    margin-top:4px !important;
+}
+
+.comment-box button{
+    margin-top:6px !important;
 }
     </style>
 
