@@ -3,140 +3,25 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Posts | Angel Naitbj</title>
+    <title>Posts | Angel Naitbj</title>
 
-<!-- Favicon -->
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
-</head>
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
 
-<body>
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
- <!-- HEADER -->
-
-<header>
-
-<img src="logo.png" alt="Angel Naitbj Logo">
-
-<h1>ANGEL NAITBJ POSTS</h1>
-
-<p>
-Philosophy • Spirituality • Science • Technology
-</p>
-
-<a href="index.html">
-HOME
-</a>
-
-</header>
-
-
-
-<!-- NAVIGATION -->
-
-<nav>
-
-<a href="index.html">
-HOME
-</a>
-
-<a href="about.html">
-ABOUT
-</a>
-
-<a href="christuneocreatology.html">
-CHRISTUNEOCREATOLOGY™
-</a>
-
-<a href="navenie.html">
-NAVENIE™
-</a>
-
-<a href="contact.html">
-CONTACT
-</a>
-
-</nav>
-
-
-
-<!-- SOCIAL MEDIA LINKS -->
-
-<div style="
-text-align:center;
-padding:20px;
-overflow-x:auto;
-white-space:nowrap;
-">
-
-
-<a href="https://facebook.com/angelnaitbj" target="_blank">
-Facebook
-</a>
-
-
-<a href="https://youtube.com/@angelnaitbj" target="_blank">
-YouTube
-</a>
-
-
-<a href="https://x.com/angelnaitbj" target="_blank">
-X (Twitter)
-</a>
-
-
-<a href="https://instagram.com/angelnaitbj" target="_blank">
-Instagram
-</a>
-
-
-<a href="https://linkedin.com/in/angelnaitbj" target="_blank">
-LinkedIn
-</a>
-
-
-<a href="https://whatsapp.com/channel/0029Va4X1Ft5PO0zGpq8eq2X" target="_blank">
-WhatsApp Channel
-</a>
-
-
-</div>
-<!-- POSTS SECTION -->
-
-<section class="container">
-
-<div id="postsContainer">
-
-Loading posts...
-
-</div>
-
-</section>
-
-    
- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Posts | Angel Naitbj</title>
-
-<link rel="icon" href="favicon.ico">
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
-<style>
+    <style>
 
 *{
 margin:0;
@@ -144,373 +29,257 @@ padding:0;
 box-sizing:border-box;
 }
 
-
 body{
-
 font-family:Arial,sans-serif;
-
 background:#dbcfd8;
-
 color:#111;
-
 line-height:1.6;
-
 }
-
 
 /* HEADER */
-
 header{
-
 background:#111;
-
 color:white;
-
 text-align:center;
-
 padding:25px 15px;
-
 }
-
 
 header img{
-
 width:80px;
-
 margin-bottom:10px;
-
 }
-
 
 header h1{
-
 color:gold;
-
 font-size:clamp(1.8rem,5vw,2.4rem);
-
 }
-
 
 header p{
-
 margin:10px 0;
-
 }
-
 
 header a{
-
 display:inline-block;
-
 padding:10px 18px;
-
 background:gold;
-
 color:#111;
-
 text-decoration:none;
-
 border-radius:8px;
-
 font-weight:bold;
-
 }
-
-
-/* NAVIGATION */
-
-nav{
-
-background:#111;
-
-text-align:center;
-
-padding:15px;
-
-}
-
-
-nav a{
-
-color:gold;
-
-margin:10px;
-
-text-decoration:none;
-
-font-weight:bold;
-
-}
-
-
-/* MAIN CONTAINER */
-
-.container{
-
-max-width:900px;
-
-margin:auto;
-
-padding:20px;
-
-}
-
 
 /* POST CARD */
-
 .post{
-
 background:white;
-
 padding:20px;
-
 margin-bottom:25px;
-
 border-radius:12px;
-
 box-shadow:0 5px 12px rgba(0,0,0,.15);
-
 }
-
 
 .post img{
-
 width:100%;
-
 max-height:500px;
-
 object-fit:cover;
-
 border-radius:10px;
-
 margin-bottom:15px;
-
 }
-
 
 .post h2{
-
 color:#8b0000;
-
 margin-bottom:12px;
-
 }
-
 
 .post p{
-
 margin-bottom:15px;
-
 white-space:pre-line;
-
 line-height:1.8;
-
 }
-
-
-/* REACTIONS */
 
 .reactions{
-
 display:flex;
-
 gap:8px;
-
 flex-wrap:wrap;
-
 }
-
 
 .reactions button{
-
 padding:8px 12px;
-
 border:none;
-
 border-radius:8px;
-
 cursor:pointer;
-
 font-size:18px;
-
 background:#eee;
-
 }
-
 
 .reactions button:hover{
-
 background:gold;
-
 }
-
-
-/* COMMENTS */
 
 .comment-box input{
-
 width:100%;
-
 padding:12px;
-
 border:1px solid #ccc;
-
 border-radius:8px;
-
 margin-top:10px;
-
 }
-
 
 .comment-box button{
-
 margin-top:8px;
-
 padding:10px 16px;
-
 background:#111;
-
 color:white;
-
 border:none;
-
 border-radius:8px;
-
 cursor:pointer;
-
 }
-
 
 .comments{
-
 margin-top:15px;
-
 border-top:1px solid #ddd;
-
 padding-top:10px;
-
 }
-
 
 .comments p{
-
 background:#f4f4f4;
-
 padding:10px;
-
 border-radius:8px;
-
 }
-
-
-/* FOOTER */
 
 footer{
-
 text-align:center;
-
 padding:20px;
-
 background:#111;
-
 color:white;
-
 margin-top:40px;
-
 }
-
-
-/* MOBILE */
 
 @media(max-width:768px){
 
-nav a{
-
-display:block;
-
-margin:8px;
-
-}
-
-
 .post{
-
 padding:15px;
-
 }
 
 }
 
+    </style>
 
-</style>
+</head>
 
+<body>
 
-</head>   
-<!-- FOOTER -->
+<!-- NAVIGATION -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+
+<img src="logo.png" width="45" class="me-2">
+
+<span class="text-warning">
+ANGEL NAITBJ
+</span>
+
+</a>
+
+<button class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav"
+aria-controls="navbarNav"
+aria-expanded="false"
+aria-label="Toggle navigation">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="index.html">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="about.html">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="christuneocreatology.html">Christuneocreatology™</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="navenie.html">NAVENIE™</a>
+</li>
+
+<li class="nav-item ms-lg-3">
+
+<a href="contact.html"
+class="btn btn-warning rounded-pill px-4">
+
+Contact Us
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- SOCIAL MEDIA -->
+
+<div class="text-center py-3">
+
+<a class="mx-2" href="https://facebook.com/angelnaitbj" target="_blank">Facebook</a>
+
+<a class="mx-2" href="https://youtube.com/@angelnaitbj" target="_blank">YouTube</a>
+
+<a class="mx-2" href="https://x.com/angelnaitbj" target="_blank">X</a>
+
+<a class="mx-2" href="https://instagram.com/angelnaitbj" target="_blank">Instagram</a>
+
+<a class="mx-2" href="https://linkedin.com/in/angelnaitbj" target="_blank">LinkedIn</a>
+
+<a class="mx-2" href="https://whatsapp.com/channel/0029Va4X1Ft5PO0zGpq8eq2X" target="_blank">WhatsApp</a>
+
+</div>
+
+<section class="container py-4">
+
+<div id="postsContainer">
+Loading posts...
+</div>
+
+</section>
 
 <footer>
 
-<h3 style="color:gold;">
-ANGEL NAITBJ
-</h3>
+<h3 style="color:gold;">ANGEL NAITBJ</h3>
 
+<img src="logo.png" width="80" class="my-3">
 
-<img src="logo.png"
-alt="Angel Naitbj Logo"
-width="80"
-style="
-display:block;
-margin:15px auto;
-">
-
+<p>Follow Angel Naitbj</p>
 
 <p>
-Follow Angel Naitbj
+<a href="https://facebook.com/angelnaitbj" target="_blank" class="text-white">Facebook</a> |
+<a href="https://youtube.com/@angelnaitbj" target="_blank" class="text-white">YouTube</a> |
+<a href="https://x.com/angelnaitbj" target="_blank" class="text-white">X</a> |
+<a href="https://instagram.com/angelnaitbj" target="_blank" class="text-white">Instagram</a>
 </p>
 
-
-<p>
-
-<a href="https://facebook.com/angelnaitbj"
-target="_blank"
-style="color:white;">
-Facebook
-</a>
-
-|
-
-<a href="https://youtube.com/@angelnaitbj"
-target="_blank"
-style="color:white;">
-YouTube
-</a>
-
-|
-
-<a href="https://x.com/angelnaitbj"
-target="_blank"
-style="color:white;">
-X
-</a>
-
-|
-
-<a href="https://instagram.com/angelnaitbj"
-target="_blank"
-style="color:white;">
-Instagram
-</a>
-
-</p>
-
-
-<p>
-© 2026 angelnaitbj.org | All Rights Reserved
-</p>
-
+<p>© 2026 angelnaitbj.org | All Rights Reserved</p>
 
 </footer>
 
-</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
+</body>
 </html>
