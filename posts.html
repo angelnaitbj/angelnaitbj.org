@@ -21,6 +21,73 @@
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+const SUPABASE_URL = "https://dvidfezruzupnxizexpl.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_DZoa0xi7W7PqrPWkxJtqSw_rn0htocy";
+
+const supabase = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
+);
+
+async function loadPosts(){
+
+    const container = document.getElementById("postsContainer");
+
+    container.innerHTML = "<h4 class='text-center'>Loading posts...</h4>";
+
+    const { data, error } = await supabase
+        .from("posts")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if(error){
+        container.innerHTML = `
+            <div class="alert alert-danger">
+                ${error.message}
+            </div>`;
+        return;
+    }
+
+    if(data.length === 0){
+        container.innerHTML = `
+            <div class="alert alert-warning">
+                No posts available.
+            </div>`;
+        return;
+    }
+
+    container.innerHTML = "";
+
+    data.forEach(post=>{
+
+        container.innerHTML += `
+        <div class="post">
+
+            ${post.image_url ? `
+            <img src="${post.image_url}"
+                 class="img-fluid rounded mb-3"
+                 alt="Post Image">
+            ` : ""}
+
+            <h2>${post.title}</h2>
+
+            <p>${post.content}</p>
+
+            <small class="text-muted">
+                ${new Date(post.created_at).toLocaleString()}
+            </small>
+
+        </div>
+        `;
+
+    });
+
+}
+
+loadPosts();
+</script>
+
     <style>
 
 *{
@@ -280,6 +347,7 @@ Loading posts...
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>
