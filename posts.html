@@ -18,76 +18,262 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" rel="stylesheet">
 
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <script>
 const SUPABASE_URL = "https://dvidfezruzupnxizexpl.supabase.co";
 const SUPABASE_KEY = "sb_publishable_DZoa0xi7W7PqrPWkxJtqSw_rn0htocy";
 
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const client = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
 
-async function loadPosts() {
+document.addEventListener("DOMContentLoaded", loadPosts);
 
-    const container = document.getElementById("postsContainer");
+async function loadPosts(){
 
-    try {
+    const container=document.getElementById("postsContainer");
 
-        const { data, error } = await client
-            .from("posts")
-            .select("*")
-            .order("created_at", { ascending: false });
+    container.innerHTML=`
+    <div class="loader">
+        <img src="loading.png">
+        <p>Loading Posts...</p>
+    </div>`;
 
-        console.log("Posts:", data);
-        console.log("Error:", error);
+    const {data:posts,error}=await client
+        .from("posts")
+        .select("*")
+        .order("created_at",{ascending:false});
 
-        if (error) {
-            container.innerHTML =
-                `<div class="alert alert-danger">
-                    <strong>Error:</strong><br>
-                    ${JSON.stringify(error)}
-                </div>`;
-            return;
-        }
+    if(error){
+        container.innerHTML=`<div class="alert alert-danger">${error.message}</div>`;
+        return;
+    }
 
-        if (!data || data.length === 0) {
-            container.innerHTML =
-                `<div class="alert alert-warning">
-                    No posts found.
-                </div>`;
-            return;
-        }
+    if(posts.length===0){
+        container.innerHTML="<h3>No Posts Available.</h3>";
+        return;
+    }
 
-        container.innerHTML = "";
+    container.innerHTML="";
 
-        data.forEach(post => {
+    for(const post of posts){
 
-            container.innerHTML += `
-            <div class="post">
+        const comments=await loadComments(post.id);
+        const reactions=await loadReactions(post.id);
 
-                ${post.image_url ? `<img src="${post.image_url}" class="img-fluid rounded mb-3">` : ""}
+        container.innerHTML+=`
 
-                <h2>${post.title ?? ""}</h2>
+<div class="post">
 
-                <p>${post.content ?? ""}</p>
+${post.image_url?
+`<img src="${post.image_url}" class="img-fluid rounded mb-3">`
+:""}
 
-                <small class="text-muted">
-                    ${post.created_at ? new Date(post.created_at).toLocaleString() : ""}
-                </small>
+<h2>${post.title}</h2>
 
-            </div>`;
-        });
+<p>${post.content}</p>
 
-    } catch(err) {
+<small class="text-muted">
+${new Date(post.created_at).toLocaleString()}
+</small>
 
-        console.error(err);
+<hr>
 
-        container.innerHTML =
-            `<div class="alert alert-danger">
-                ${err}
-            </div>`;
+<div class="reactions">
+
+<button onclick="react(${post.id},'like')">
+👍 ${reactions.like}
+</button>
+
+<button onclick="react(${post.id},'love')">
+❤️ ${reactions.love}
+</button>
+
+<button onclick="react(${post.id},'laugh')">
+😂 ${reactions.laugh}
+</button>
+
+<button onclick="react(${post.id},'wow')">
+😮 ${reactions.wow}
+</button>
+
+</div>
+
+<div class="comment-box mt-3">
+
+<input
+id="name${post.id}"
+class="form-control mb-2"
+placeholder="Your name">
+
+<textarea
+id="comment${post.id}"
+class="form-control"
+rows="3"
+placeholder="Write a comment"></textarea>
+
+<button
+class="btn btn-dark mt-2"
+onclick="submitComment(${post.id})">
+
+Post Comment
+
+</button>
+
+</div>
+
+<div class="comments mt-4">
+
+<h5>Comments</h5>
+
+${comments}
+
+</div>
+
+</div>
+
+`;
+
     }
 
 }
 
-document.addEventListener("DOMContentLoaded", loadPosts);
+async function loadComments(postId){
+
+const {data,error}=await client
+.from("comments")
+.select("*")
+.eq("post_id",postId)
+.order("created_at",{ascending:true});
+
+if(error) return "";
+
+if(data.length===0)
+return "<p>No comments yet.</p>";
+
+return data.map(c=>`
+
+<p>
+
+<strong>${c.name}</strong><br>
+
+${c.comment}
+
+</p>
+
+`).join("");
+
+}
+
+async function loadReactions(postId){
+
+const {data,error}=await client
+.from("reactions")
+.select("reaction")
+.eq("post_id",postId);
+
+if(error){
+
+return{
+like:0,
+love:0,
+laugh:0,
+wow:0
+};
+
+}
+
+return{
+
+like:data.filter(x=>x.reaction==="like").length,
+
+love:data.filter(x=>x.reaction==="love").length,
+
+laugh:data.filter(x=>x.reaction==="laugh").length,
+
+wow:data.filter(x=>x.reaction==="wow").length
+
+};
+
+}
+
+async function react(postId,reaction){
+
+const {error}=await client
+.from("reactions")
+.insert([
+{
+post_id:postId,
+reaction:reaction
+}
+]);
+
+if(error){
+
+alert(error.message);
+
+return;
+
+}
+
+loadPosts();
+
+}
+
+async function submitComment(postId){
+
+const name=document.getElementById("name"+postId).value.trim();
+
+const comment=document.getElementById("comment"+postId).value.trim();
+
+if(name===""){
+
+alert("Enter your name");
+
+return;
+
+}
+
+if(comment===""){
+
+alert("Write a comment");
+
+return;
+
+}
+
+const {error}=await client
+.from("comments")
+.insert([
+
+{
+
+post_id:postId,
+
+name:name,
+
+comment:comment
+
+}
+
+]);
+
+if(error){
+
+alert(error.message);
+
+return;
+
+}
+
+document.getElementById("comment"+postId).value="";
+
+loadPosts();
+
+}
 </script>
 
     <style>
@@ -230,6 +416,39 @@ padding:15px;
 
 }
 
+/* ===========================
+   LOADING SPINNER
+=========================== */
+
+.loader{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:60px 20px;
+}
+
+.loader img{
+    width:90px;
+    height:90px;
+    animation:spin 1.2s linear infinite;
+    margin-bottom:15px;
+}
+
+.loader p{
+    font-size:18px;
+    font-weight:bold;
+    color:#666;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
     </style>
 
 </head>
