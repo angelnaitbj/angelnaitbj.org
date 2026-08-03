@@ -191,7 +191,22 @@ padding-left:15px;
 padding-right:15px;
 }
 
-}  
+}  h1{
+    font-size:clamp(1.5rem, 4vw, 3rem);
+    line-height:1.3;
+}
+
+@media (max-width:576px){
+
+.hero-header h1{
+    font-size:1.4rem;
+    line-height:1.4;
+    padding:0 10px;
+}
+
+}
+
+
     </style>
    
   <body class="bg-light">
@@ -199,8 +214,8 @@ padding-right:15px;
 <!-- HEADER -->
 <header class="bg-dark text-center py-5">
     <div class="container">
-        <h1 class="display-5 fw-bold text-danger">
-        UNIVERSITY OF CHRISTUNEOCREATOLOGY (UNIC)
+        <h1 class="fw-bold text-danger text-wrap">
+          UNIVERSITY OF CHRISTUNEOCREATOLOGY (UNIC)
         </h1>
         <p class="lead text-warning mb-0">
             Christuneocreative Educational System (CES)
