@@ -156,6 +156,11 @@ Post Comment
 
 </button>
 
+<button class="btn btn-light"
+        onclick="sharePost(${post.id})">
+    <i class="bi bi-share-fill"></i> Share
+</button>
+
 </div>
 
 <div class="comments mt-4">
@@ -354,6 +359,42 @@ return;
 document.getElementById("comment"+postId).value="";
 
 loadPosts();
+
+}
+
+async function sharePost(postId){
+
+    const postLink = window.location.origin +
+                     window.location.pathname +
+                     "?post=" + postId;
+
+    if(navigator.share){
+
+        try{
+
+            await navigator.share({
+
+                title: "Angel Naitbj",
+
+                text: "Check out this post.",
+
+                url: postLink
+
+            });
+
+        }catch(err){
+
+            console.log(err);
+
+        }
+
+    }else{
+
+        navigator.clipboard.writeText(postLink);
+
+        alert("Post link copied to clipboard.");
+
+    }
 
 }
 </script>
