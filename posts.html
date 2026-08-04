@@ -63,6 +63,7 @@ async function loadPosts(){
 
         const comments=await loadComments(post.id);
         const reactions=await loadReactions(post.id);
+        const commentCount = await getCommentCount(post.id);
 
         container.innerHTML+=`
 
@@ -166,10 +167,11 @@ Post Comment
 <div class="comments mt-4">
 
 <button
-class="btn btn-outline-secondary btn-sm mb-2"
-onclick="toggleComments(${post.id})">
+    class="btn btn-outline-secondary btn-sm"
+    onclick="toggleComments(${post.id})">
 
-💬 View Comments
+    <i class="bi bi-chat"></i>
+    View Comments (${commentCount})
 
 </button>
 
@@ -397,6 +399,18 @@ async function sharePost(postId){
     }
 
 }
+
+async function getCommentCount(postId){
+
+    const { count } = await client
+        .from("comments")
+        .select("*", { count: "exact", head: true })
+        .eq("post_id", postId);
+
+    return count || 0;
+
+}
+
 </script>
 
     <style>
