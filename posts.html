@@ -76,9 +76,37 @@ ${post.media_type==="image" && post.image_url ? `
 ` : ""}
 
 ${post.media_type==="video" && post.video_url ? `
-<video controls class="w-100 rounded mb-3">
-<source src="${post.video_url}">
-</video>
+
+${
+post.video_url.includes("youtube.com") ||
+post.video_url.includes("youtu.be")
+
+?
+
+`<div class="ratio ratio-16x9 mb-3">
+
+<iframe
+src="${youtubeEmbed(post.video_url)}"
+title="YouTube Video"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+
+</iframe>
+
+</div>`
+
+:
+
+`<video controls class="w-100 rounded mb-3">
+
+<source src="${post.video_url}" type="video/mp4">
+
+Your browser does not support video.
+
+</video>`
+
+}
+
 ` : ""}
 
 ${post.media_type==="audio" && post.audio_url ? `
@@ -408,6 +436,25 @@ async function getCommentCount(postId){
         .eq("post_id", postId);
 
     return count || 0;
+
+}
+
+function youtubeEmbed(url){
+
+    let id="";
+
+    if(url.includes("youtu.be/")){
+
+        id=url.split("youtu.be/")[1].split("?")[0];
+
+    }
+    else if(url.includes("watch?v=")){
+
+        id=url.split("watch?v=")[1].split("&")[0];
+
+    }
+
+    return `https://www.youtube.com/embed/${id}`;
 
 }
 
