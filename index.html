@@ -22,6 +22,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 
+/* ==============================
+   GLOBAL RESET
+============================== */
+
 *{
     margin:0;
     padding:0;
@@ -32,11 +36,17 @@ html{
     scroll-behavior:smooth;
 }
 
+html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
 body{
     font-family:'Poppins',sans-serif;
     background:#f5f7fb;
     color:#222;
-    overflow-x:hidden;
     line-height:1.8;
 }
 
@@ -46,29 +56,65 @@ a{
 
 img{
     max-width:100%;
+    height:auto;
     display:block;
 }
 
+
+/* ==============================
+   FULL WIDTH SECTIONS
+============================== */
+
 section{
-    background: #000;
-    padding: 80px 0;
+    width:100%;
+    max-width:100%;
+    margin:0;
+    padding:80px 0;
+    background:#000;
 }
 
+
+/* ==============================
+   REMOVE BOOTSTRAP SIDE SPACE
+============================== */
+
+.container-fluid{
+    width:100%;
+    max-width:100%;
+    margin-left:0;
+    margin-right:0;
+}
+
+
+/* Keep normal Bootstrap containers responsive */
+.container{
+    width:100%;
+}
+
+
+/* ==============================
+   SECTION TITLE
+============================== */
+
 .section-title{
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 20px;
-    color: #fff;
+    font-size:2.5rem;
+    font-weight:700;
+    text-align:center;
+    margin-bottom:20px;
+    color:#fff;
 }
 
 .section-subtitle{
     text-align:center;
     color:#f7eded;
     max-width:750px;
-    margin:auto;
-    margin-bottom:60px;
+    margin:0 auto 60px auto;
 }
+
+
+/* ==============================
+   GOLD
+============================== */
 
 .text-gold{
     color:#d4af37;
@@ -89,93 +135,13 @@ section{
     transform:translateY(-3px);
 }
 
-.card-modern{
-    border:none;
-    border-radius:20px;
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-    transition:.4s;
-    overflow:hidden;
-}
 
-.card-modern:hover{
-    transform:translateY(-10px);
-}
-
-.shadow-soft{
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-}
-
-.rounded-4{
-    border-radius:20px;
-}
-
-.bg-dark-gradient{
-    background:linear-gradient(135deg,#111,#1b1b1b,#000);
-}
-/*==============================
-            HERO
-==============================*/
-
-.hero{
-
-    background:
-    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-    url("hero.jpg");
-
-    background-size:cover;
-    background-position:center;
-
-}
-
-.hero-logo{
-
-    width:340px;
-    margin:auto;
-    animation:float 5s ease-in-out infinite;
-
-    filter:drop-shadow(0 25px 35px rgba(0,0,0,.5));
-
-}
-
-@keyframes float{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-15px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-.hero h1{
-
-font-weight:800;
-
-}
-
-.hero p{
-
-font-size:1.2rem;
-
-line-height:1.8;
-
-}
-
-.btn-outline-light:hover{
-
-color:#111;
-
-background:hsl(73, 61%, 61%);
-
-}
+/* ==============================
+   MODERN CARD
+============================== */
 
 .card-modern{
+    width:100%;
     border:none;
     border-radius:20px;
     overflow:hidden;
@@ -184,10 +150,133 @@ background:hsl(73, 61%, 61%);
 }
 
 .card-modern:hover{
-    transform:translateY(-12px);
+    transform:translateY(-10px);
     box-shadow:0 20px 45px rgba(0,0,0,.18);
 }
 
+
+/* ==============================
+   SOFT SHADOW
+============================== */
+
+.shadow-soft{
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+
+/* ==============================
+   ROUNDED
+============================== */
+
+.rounded-4{
+    border-radius:20px;
+}
+
+
+/* ==============================
+   DARK GRADIENT
+============================== */
+
+.bg-dark-gradient{
+    background:linear-gradient(
+        135deg,
+        #111,
+        #1b1b1b,
+        #000
+    );
+}
+
+
+/* ==============================
+   HERO
+============================== */
+
+.hero{
+    width:100%;
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.75),
+            rgba(0,0,0,.75)
+        ),
+        url("hero.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+    align-items:center;
+}
+
+
+/* ==============================
+   HERO LOGO
+============================== */
+
+.hero-logo{
+    width:340px;
+    max-width:80%;
+    margin:auto;
+
+    animation:float 5s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 25px 35px rgba(0,0,0,.5)
+        );
+}
+
+
+/* ==============================
+   FLOAT ANIMATION
+============================== */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+
+/* ==============================
+   HERO TEXT
+============================== */
+
+.hero h1{
+    font-weight:800;
+}
+
+.hero p{
+    font-size:1.2rem;
+    line-height:1.8;
+}
+
+
+/* ==============================
+   OUTLINE BUTTON
+============================== */
+
+.btn-outline-light:hover{
+    color:#111;
+    background:hsl(73,61%,61%);
+}
+
+
+/* ==============================
+   CARD IMAGE
+============================== */
 
 .card-img-top{
     width:100%;
@@ -196,6 +285,12 @@ background:hsl(73, 61%, 61%);
     background:#fff;
     padding:15px;
 }
+
+
+/* ==============================
+   CARD FOOTER
+============================== */
+
 .card-footer{
     text-align:center;
 }
@@ -205,14 +300,84 @@ background:hsl(73, 61%, 61%);
     font-weight:bold;
 }
 
+
+/* ==============================
+   MOBILE
+============================== */
+
 @media (max-width:576px){
 
-.hero-header h1{
-    font-size:1.4rem;
-    line-height:1.4;
-    padding:0 10px;
+    section{
+        width:100%;
+        padding:60px 0;
+    }
+
+    .container{
+        width:100%;
+        max-width:100%;
+    }
+
+    .hero-header h1{
+        font-size:1.4rem;
+        line-height:1.4;
+        padding:0 10px;
+    }
+
+    .hero-logo{
+        width:260px;
+        max-width:75%;
+    }
+
+    .section-title{
+        font-size:2rem;
+    }
+
 }
 
+
+/* ==============================
+   TABLET
+============================== */
+
+@media (min-width:577px) and (max-width:991px){
+
+    section{
+        width:100%;
+        padding:70px 0;
+    }
+
+}
+
+
+/* ==============================
+   DESKTOP
+============================== */
+
+@media (min-width:992px){
+
+    section{
+        width:100%;
+        padding:80px 0;
+    }
+
+}
+
+/* ==============================
+   FULL WIDTH NAVBAR
+============================== */
+
+.navbar{
+    width:100vw;
+    margin:0;
+    padding:0;
+}
+
+.navbar > .container{
+    width:100%;
+    max-width:none;
+    margin:0;
+    padding-left:15px;
+    padding-right:15px;
 }
 </style>
 
