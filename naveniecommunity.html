@@ -391,24 +391,104 @@ margin:15px auto;
 }
 
 
-/* MOBILE */
 
-@media(max-width:768px){
+/* =========================================
+   FIXED FULL-WIDTH NAVBAR
+========================================= */
 
-nav a{
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 
-display:block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 
-margin:8px;
+    z-index: 1050;
+
+    border-radius: 0;
+}
+
+/* =========================================
+   NAVBAR CONTAINER
+========================================= */
+
+.navbar > .container {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* =========================================
+   PREVENT HORIZONTAL SCROLLING
+========================================= */
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* =========================================
+   SPACE FOR FIXED NAVBAR
+========================================= */
+
+body {
+    padding-top: 70px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+
+    .navbar > .container {
+        width: 100%;
+        max-width: 100%;
+
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
 }
 
 
-header h1{
+/* =========================================
+   TABLET
+========================================= */
 
-font-size:1.5rem;
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .navbar > .container {
+        width: 100%;
+        max-width: 100%;
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
 }
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 992px) {
+
+    .navbar > .container {
+        width: 100%;
+        max-width: 100%;
+
+        padding-left: 30px;
+        padding-right: 30px;
+    }
 
 }
 
