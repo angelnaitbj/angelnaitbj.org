@@ -123,91 +123,107 @@ footer img{
     height:auto;
 }
 
-/* TABLET */
+/* =========================================
+   FIXED FULL-WIDTH NAVBAR
+========================================= */
 
-@media (max-width:992px){
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 
-.hero-header{
-padding:60px 20px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    z-index: 1050;
+
+    border-radius: 0;
 }
 
-.hero-header h1{
-font-size:2.2rem;
+/* =========================================
+   NAVBAR CONTAINER
+========================================= */
+
+.navbar > .container {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
+/* =========================================
+   PREVENT HORIZONTAL SCROLLING
+========================================= */
+
+html,
+body {
+    overflow-x: hidden;
 }
 
-/* MOBILE */
+/* =========================================
+   SPACE FOR FIXED NAVBAR
+========================================= */
 
-@media (max-width:768px){
-
-.hero-header{
-padding:50px 15px;
+body {
+    padding-top: 70px;
 }
 
-.hero-header h1{
-font-size:1.6rem;
-line-height:1.4;
-}
 
-.hero-header p{
-font-size:1rem;
-}
+/* =========================================
+   MOBILE
+========================================= */
 
-.navbar-brand span{
-font-size:1rem;
-}
+@media (max-width: 767px) {
 
-.card-body{
-padding:20px;
-}
+    .navbar > .container {
+        width: 100%;
+        max-width: 100%;
 
-.student-btn{
-width:100%;
-font-size:1rem;
-padding:15px;
-}
-
-footer{
-text-align:center;
-}
-
-}
-
-/* VERY SMALL DEVICES */
-
-@media (max-width:576px){
-
-.hero-header h1{
-font-size:1.35rem;
-}
-
-.hero-header p{
-font-size:.95rem;
-}
-
-.container{
-padding-left:15px;
-padding-right:15px;
-}
-
-}  h1{
-    font-size:clamp(1.5rem, 4vw, 3rem);
-    line-height:1.3;
-}
-
-@media (max-width:576px){
-
-.hero-header h1{
-    font-size:1.4rem;
-    line-height:1.4;
-    padding:0 10px;
-}
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
 }
 
 
-    </style>
+/* =========================================
+   TABLET
+========================================= */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .navbar > .container {
+        width: 100%;
+        max-width: 100%;
+
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+}
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media (min-width: 992px) {
+
+    .navbar > .container {
+        width: 100%;
+        max-width: 100%;
+
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+}
+
+ </style>
    
   <body class="bg-light">
 
